@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Ordel Maragh — Mechanical Engineering Portfolio</title>
+<title>Ordel Maragh — Aerospace & Mechanical Engineering Portfolio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -16,7 +16,7 @@
   --muted:#9EACC0;
   --rule:rgba(158,172,192,.22);
   --gold:#E0AE5E;
-  --measure:1120px;
+  --measure:1180px;
 }
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
@@ -52,32 +52,32 @@ a:hover{border-bottom-color:var(--gold)}
 
 .mono{
   font-family:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
-  font-size:11.5px;
-  letter-spacing:.16em;
+  font-size:13px;
+  letter-spacing:.15em;
   text-transform:uppercase;
   color:var(--gold);
   line-height:1.6;
 }
 
-/* ---------- masthead over open sky ---------- */
-.masthead{padding:96px 0 72px;text-align:left}
+/* ---------- masthead ---------- */
+.masthead{padding:100px 0 76px;text-align:center}
 .masthead .mono{display:block;margin-bottom:26px;color:var(--muted)}
 h1{
   font-weight:700;
-  font-size:clamp(46px,9vw,98px);
+  font-size:clamp(52px,10vw,116px);
   line-height:1.02;
-  letter-spacing:-.015em;
+  letter-spacing:-.02em;
   margin:0;
 }
 .tagline{
-  font-size:clamp(19px,2.2vw,23px);
+  font-size:clamp(20px,2.4vw,26px);
   color:var(--muted);
-  max-width:44ch;
-  margin:24px 0 0;
+  max-width:46ch;
+  margin:26px auto 0;
   font-style:italic;
 }
 
-/* ---------- the sheet ---------- */
+/* ---------- sheet ---------- */
 .sheet{
   max-width:var(--measure);
   margin:0 auto 96px;
@@ -90,69 +90,88 @@ h1{
 
 .titleblock{
   display:grid;
-  grid-template-columns:repeat(4,1fr);
+  grid-template-columns:repeat(3,1fr);
   border-bottom:1px solid var(--rule);
   margin:0;
+  text-align:center;
 }
-.field{padding:20px 24px 22px;border-right:1px solid var(--rule)}
+.field{padding:22px 24px 24px;border-right:1px solid var(--rule)}
 .field:last-child{border-right:none}
-.field dt{margin:0 0 6px}
-.field dd{margin:0;font-size:16px;line-height:1.4}
+.field dt{margin:0 0 8px}
+.field dd{margin:0;font-size:19px;line-height:1.4}
 
-.intro{padding:52px 0 12px;max-width:66ch}
+.section-head{display:flex;align-items:center;gap:28px;padding-top:64px}
+.section-head::before,.section-head::after{content:"";flex:1;height:1px;background:var(--rule)}
+.section-head h2{
+  font-weight:700;
+  font-size:clamp(30px,4.4vw,48px);
+  letter-spacing:-.015em;
+  line-height:1;
+  margin:0;
+  white-space:nowrap;
+}
+
+.intro{padding:30px 0 8px;max-width:70ch;margin:0 auto}
 .intro p{margin:0 0 20px}
 
-.section-head{display:flex;align-items:center;gap:20px;padding-top:44px}
-.section-head::after{content:"";flex:1;height:1px;background:var(--rule)}
-
+/* ---------- projects ---------- */
 .project{
   display:grid;
-  grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  grid-template-columns:minmax(0,1.12fr) minmax(0,1fr);
   gap:0 52px;
   align-items:start;
-  padding:52px 0;
+  padding:60px 0;
   border-bottom:1px solid var(--rule);
 }
 .project:last-of-type{border-bottom:none}
-.project:nth-child(even) .frame{order:2}
+.project:nth-of-type(even) .gallery{order:2}
 
+.gallery{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .frame{
   position:relative;
   background:var(--panel);
   border:1px solid var(--rule);
   border-radius:2px;
-  aspect-ratio:4/3;
+  aspect-ratio:1/1;
   overflow:hidden;
   display:flex;align-items:center;justify-content:center;
 }
+.frame.lead{grid-column:1 / -1;aspect-ratio:4/3}
+.frame.media{aspect-ratio:1472/1040;background:#000}
+.frame video{width:100%;height:100%;object-fit:cover;display:block;position:relative;z-index:1}
 .frame img{width:100%;height:100%;object-fit:cover;display:block;position:relative;z-index:1}
-.slot{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;text-align:center;padding:24px;color:var(--muted)}
+.slot{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:16px;color:var(--muted);font-size:10.5px;letter-spacing:.08em}
 .tick{position:absolute;width:9px;height:9px;border:1px solid var(--gold);opacity:.55}
-.tick.tl{top:9px;left:9px;border-right:0;border-bottom:0}
-.tick.br{bottom:9px;right:9px;border-left:0;border-top:0}
+.lead .tick.tl{top:9px;left:9px;border-right:0;border-bottom:0}
+.lead .tick.br{bottom:9px;right:9px;border-left:0;border-top:0}
 
-.project h2{
+.project-copy{text-align:center}
+.project h3{
   font-weight:700;
-  font-size:clamp(27px,3.2vw,37px);
-  line-height:1.12;
-  letter-spacing:-.01em;
-  margin:10px 0 16px;
+  font-size:clamp(30px,4vw,44px);
+  line-height:1.1;
+  letter-spacing:-.015em;
+  margin:12px 0 20px;
 }
-.project p{margin:0 0 26px;color:#CFD8E6}
+.project p{margin:0 0 28px;color:#CFD8E6;text-align:left}
 .specs{
   display:grid;
   grid-template-columns:repeat(2,minmax(0,1fr));
   border-top:1px solid var(--rule);
   margin:0;
+  text-align:left;
 }
 .specs div{padding:14px 16px 16px;border-bottom:1px solid var(--rule);border-right:1px solid var(--rule)}
 .specs div:nth-child(2n){border-right:none}
-.specs dt{margin:0 0 4px}
-.specs dd{margin:0;font-size:15.5px;line-height:1.4}
+.specs dt{margin:0 0 5px}
+.specs dd{margin:0;font-size:17px;line-height:1.4}
 
-.contact{padding:60px 0 72px;border-top:1px solid var(--rule)}
-.contact h2{font-weight:700;font-size:clamp(32px,5vw,54px);margin:14px 0 26px;line-height:1.06}
-.links{display:flex;flex-wrap:wrap;gap:12px 34px;font-size:17px}
+/* ---------- contact ---------- */
+.contact{padding:70px 0 80px;border-top:1px solid var(--rule);text-align:center}
+.contact h2{font-weight:700;font-size:clamp(52px,9vw,96px);margin:0 0 40px;line-height:1;letter-spacing:-.02em}
+.links{display:flex;flex-wrap:wrap;justify-content:center;gap:28px 64px}
+.links .label{display:block;margin-bottom:6px;color:#FFFFFF}
+.links a{font-size:19px}
 
 .rise{opacity:0;transform:translateY(14px);transition:opacity .7s ease,transform .7s ease}
 .rise.in{opacity:1;transform:none}
@@ -162,16 +181,16 @@ h1{
 .masthead .tagline{animation-delay:.35s}
 @keyframes draw{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 
-@media (max-width:860px){
+@media (max-width:900px){
   .wrap{padding:0 22px}
-  .sheet{margin:0 16px 56px}
+  .sheet{margin:0 14px 56px}
   .sheet .wrap{padding:0 24px}
   .masthead{padding:64px 0 44px}
-  .titleblock{grid-template-columns:repeat(2,1fr)}
-  .field{border-bottom:1px solid var(--rule)}
-  .field:nth-child(2n){border-right:none}
-  .project{grid-template-columns:1fr;gap:28px;padding:40px 0}
-  .project:nth-child(even) .frame{order:0}
+  .titleblock{grid-template-columns:1fr}
+  .field{border-bottom:1px solid var(--rule);border-right:none}
+  .project{grid-template-columns:1fr;gap:28px;padding:44px 0}
+  .project:nth-of-type(even) .gallery{order:0}
+  .section-head{gap:16px;padding-top:48px}
 }
 @media (prefers-reduced-motion:reduce){
   .rise{opacity:1;transform:none;transition:none}
@@ -183,9 +202,9 @@ h1{
 
 <header class="masthead">
   <div class="wrap">
-    <span class="mono">Engineering portfolio — Rev B — 2026</span>
-    <h1>Ordel &ldquo;Shawn&rdquo; Maragh</h1>
-    <p class="tagline">Mechanical engineering — structures, composites, and propulsion hardware that gets built and flown.</p>
+    <span class="mono">Aerospace &amp; Mechanical Engineering — 2026</span>
+    <h1>Ordel Maragh</h1>
+    <p class="tagline">Structures, propulsion, and manufacturing — hardware I design, build, and then have to answer for on the test stand.</p>
   </div>
 </header>
 
@@ -193,102 +212,327 @@ h1{
   <dl class="titleblock">
     <div class="field"><dt class="mono">Discipline</dt><dd>Mechanical Engineering</dd></div>
     <div class="field"><dt class="mono">Institution</dt><dd>Florida International University</dd></div>
-    <div class="field"><dt class="mono">Role</dt><dd>Chief of Vehicle Structures &amp; Dynamics, FIU SEDS</dd></div>
-    <div class="field"><dt class="mono">Status</dt><dd>B.S. expected 2027</dd></div>
+    <div class="field"><dt class="mono">Expected graduation</dt><dd>May 2027</dd></div>
   </dl>
 
   <div class="wrap">
+    <div class="section-head"><h2>About me</h2></div>
+
     <section class="intro rise">
-      <p>I work on the part of engineering where the analysis has to survive contact with real hardware — laying up carbon fiber airframes, machining motor components, running FEA on structures I then have to build, and recovering flight data to find out what the model missed.</p>
-      <p>Most of my work sits between two places: a university rocketry team where I lead vehicle structures and dynamics, and a research lab where I develop propulsion and thermal systems for small spacecraft.</p>
+      <p>I'm a mechanical engineering student at FIU working toward a career in aerospace and defense, with a focus on structures, propulsion, and manufacturing. Most of what I know came from building things end to end: airframes and joints sized with hand calculations and ANSYS FEA, composite parts laid up and bagged in house, propellant mixed and burned, and flight computers designed at the board level and debugged until they worked in the field.</p>
+      <p>I've led a 15-person structures team, built mission budgets for a nanosatellite architecture at the Space Dynamics Laboratory, and I currently run lab operations for a solar photothermal propulsion program. I'm comfortable moving between analysis, fabrication, test setup, firmware, and documentation without needing to be walked through the basics.</p>
     </section>
 
-    <div class="section-head"><span class="mono">Selected work</span></div>
+    <div class="section-head"><h2>Experience</h2></div>
 
     <article class="project rise">
-      <figure class="frame">
-        <span class="tick tl"></span><span class="tick br"></span>
-        <span class="slot mono">Image 1<br>images/project-1.jpg</span>
-        <img src="images/project-1.jpg" alt="Minimum-diameter rocket airframe" onerror="this.remove()">
-      </figure>
-      <div>
-        <span class="mono">Sheet 1 of 4 — Vehicle design</span>
-        <h2>54 mm minimum-diameter rocket</h2>
-        <p>A minimum-diameter high-power rocket built around an AeroTech K1103X and targeting Mach 2.3. Von Kármán nose cone geometry, a carbon fiber airframe, and dual-deploy recovery on a Featherweight Blue Jay 2 with GPS tracking. Replace this text with what the photo actually shows — the specific problem you solved reads better than a summary.</p>
+      <div class="gallery">
+        <figure class="frame lead">
+          <span class="tick tl"></span><span class="tick br"></span>
+          <span class="slot mono">images/photothermal-1.jpg</span>
+          <img src="images/photothermal-1.jpg" alt="Solar photothermal propulsion test hardware" onerror="this.remove()">
+        </figure>
+        <figure class="frame">
+          <span class="slot mono">photothermal-2.jpg</span>
+          <img src="images/photothermal-2.jpg" alt="Detail view" onerror="this.remove()">
+        </figure>
+        <figure class="frame">
+          <span class="slot mono">photothermal-3.jpg</span>
+          <img src="images/photothermal-3.jpg" alt="Detail view" onerror="this.remove()">
+        </figure>
+      </div>
+      <div class="project-copy">
+        <span class="mono">Research assistant — FIU — Jan 2026 to present</span>
+        <h3>Solar photothermal propulsion</h3>
+        <p>I lead lab operations for a solar photothermal propulsion program aimed at CubeSat maneuverability, covering prototype testing, CAD layout, mission modeling, and documentation. I helped define a water-based propulsion test campaign spanning bench and vacuum testing, thrust measurement, pressure stability, thermal response, nozzle performance, and restart behavior, and I fabricate the sodium-alginate and carbon nano-capillary sponges that drive light absorption and steam generation. I also machine the structural mounts, sensor fixtures, and thermal isolation hardware that keep chamber temperature data repeatable, and I contributed to the patent covering the propulsion test stand this work produced.</p>
         <dl class="specs">
-          <div><dt class="mono">Role</dt><dd>Design and build lead</dd></div>
-          <div><dt class="mono">Airframe</dt><dd>Carbon fiber, 2.125 in OD</dd></div>
-          <div><dt class="mono">Avionics</dt><dd>Blue Jay 2, GPS tracker</dd></div>
-          <div><dt class="mono">Target</dt><dd>Mach 2.3</dd></div>
+          <div><dt class="mono">Patent</dt><dd>Contributed to a patent on the propulsion test stand</dd></div>
+          <div><dt class="mono">Partners</dt><dd>AFRL, UNP, industry</dd></div>
+          <div><dt class="mono">Role</dt><dd>Lab operations lead</dd></div>
+          <div><dt class="mono">Target</dt><dd>4U, 6U, and 8U spacecraft</dd></div>
         </dl>
       </div>
     </article>
 
     <article class="project rise">
-      <figure class="frame">
-        <span class="tick tl"></span><span class="tick br"></span>
-        <span class="slot mono">Image 2<br>images/project-2.jpg</span>
-        <img src="images/project-2.jpg" alt="Carbon fiber layup on mandrel" onerror="this.remove()">
-      </figure>
-      <div>
-        <span class="mono">Sheet 2 of 4 — Composites manufacturing</span>
-        <h2>Braided carbon fiber airframe tubes</h2>
-        <p>Wet layup of braided carbon sleeve over a 2.125 in mandrel to produce flight-ready airframe tubing in house. Iterated through sleeve tensioning, resin starvation, and mandrel release until the process repeated cleanly. Swap in your own account of what went wrong first and what fixed it.</p>
+      <div class="gallery">
+        <figure class="frame lead">
+          <span class="tick tl"></span><span class="tick br"></span>
+          <span class="slot mono">images/seds-1.jpg</span>
+          <img src="images/seds-1.jpg" alt="FIU SEDS vehicle structures" onerror="this.remove()">
+        </figure>
+        <figure class="frame">
+          <span class="slot mono">seds-2.jpg</span>
+          <img src="images/seds-2.jpg" alt="Detail view" onerror="this.remove()">
+        </figure>
+        <figure class="frame">
+          <span class="slot mono">seds-3.jpg</span>
+          <img src="images/seds-3.jpg" alt="Detail view" onerror="this.remove()">
+        </figure>
+      </div>
+      <div class="project-copy">
+        <span class="mono">FIU SEDS — Oct 2025 to Apr 2026</span>
+        <h3>Chief of vehicle structures and dynamics</h3>
+        <p>I managed a 15-member team split across Structures, Simulation, Manufacturing, Airbrakes, and Recovery for a high-power rocket program, and led the design reviews covering airframes, recovery interfaces, airbrakes, and avionics packaging. I designed the airframes, couplers, joints, and recovery interfaces using load calculations, material selection, and ANSYS FEA, taking 18% out of system weight through structural optimization. I also started the team's in-house composites program from nothing: fiberglass and carbon layups, vacuum bagging and infusion, mold making, and mandrel manufacturing for body tubes.</p>
         <dl class="specs">
-          <div><dt class="mono">Process</dt><dd>Wet layup, braided sleeve</dd></div>
-          <div><dt class="mono">Tooling</dt><dd>2.125 in mandrel, release system</dd></div>
-          <div><dt class="mono">Materials</dt><dd>Carbon fiber, epoxy</dd></div>
-          <div><dt class="mono">Outcome</dt><dd>Repeatable tube fabrication</dd></div>
+          <div><dt class="mono">Team</dt><dd>15 engineers, 5 subgroups</dd></div>
+          <div><dt class="mono">Weight saved</dt><dd>18% system reduction</dd></div>
+          <div><dt class="mono">Analysis</dt><dd>ANSYS FEA, hand calculations</dd></div>
+          <div><dt class="mono">Milestone</dt><dd>PDR met on schedule</dd></div>
+        </dl>
+      </div>
+    </article>
+
+    <div class="section-head"><h2>Projects</h2></div>
+
+    <article class="project rise">
+      <div class="gallery">
+        <figure class="frame lead media">
+          <span class="tick tl"></span><span class="tick br"></span>
+          <video controls preload="metadata" playsinline poster="images/engine-poster.jpg">
+            <source src="media/engine-firing.mp4" type="video/mp4">
+          </video>
+        </figure>
+        <figure class="frame">
+          <span class="slot mono">engine-2.jpg</span>
+          <img src="images/engine-2.jpg" alt="Chamber and nozzle hardware" onerror="this.remove()">
+        </figure>
+        <figure class="frame">
+          <span class="slot mono">engine-3.jpg</span>
+          <img src="images/engine-3.jpg" alt="Injector detail" onerror="this.remove()">
+        </figure>
+      </div>
+      <div class="project-copy">
+        <span class="mono">Jul 2026</span>
+        <h3>600 lbf N2O/IPA liquid engine</h3>
+        <p>A pressure-fed liquid rocket engine running nitrous oxide and isopropanol at 600 psi chamber pressure, sized for 600 lbf of thrust over a 25 second burn. I set the design point at O/F 5.78 with a 6.65 expansion ratio, giving a 0.873 in throat and a 2.251 in exit on a conical contour, then sized a 16-on-16 ox-fuel-ox triplet injector to a 20% chamber pressure drop and fabricated the chamber. The feed budget closes at 832 psi supply, and an acoustic screening put the injection frequencies clear of the 1L, 1T, 2T, and 1R chamber modes.</p>
+        <dl class="specs">
+          <div><dt class="mono">Propellants</dt><dd>N2O / IPA at O/F 5.78</dd></div>
+          <div><dt class="mono">Chamber</dt><dd>600 psi, 3,260 K</dd></div>
+          <div><dt class="mono">Performance</dt><dd>600 lbf vac, 261 s Isp</dd></div>
+          <div><dt class="mono">Injector</dt><dd>32-orifice triplet, 20% drop</dd></div>
         </dl>
       </div>
     </article>
 
     <article class="project rise">
-      <figure class="frame">
-        <span class="tick tl"></span><span class="tick br"></span>
-        <span class="slot mono">Image 3<br>images/project-3.jpg</span>
-        <img src="images/project-3.jpg" alt="CubeSat propulsion research" onerror="this.remove()">
-      </figure>
-      <div>
-        <span class="mono">Sheet 3 of 4 — Research</span>
-        <h2>Solar-thermal propulsion CubeSat</h2>
-        <p>Undergraduate research assistant on a solar-thermal propulsion system for a CubeSat platform, supporting design, modeling, and test hardware. Add the specific subsystem you own and one result you can point to.</p>
+      <div class="gallery">
+        <figure class="frame lead">
+          <span class="tick tl"></span><span class="tick br"></span>
+          <span class="slot mono">images/mach26-1.jpg</span>
+          <img src="images/mach26-1.jpg" alt="Carbon fiber performance rocket" onerror="this.remove()">
+        </figure>
+        <figure class="frame">
+          <span class="slot mono">mach26-2.jpg</span>
+          <img src="images/mach26-2.jpg" alt="Detail view" onerror="this.remove()">
+        </figure>
+        <figure class="frame">
+          <span class="slot mono">mach26-3.jpg</span>
+          <img src="images/mach26-3.jpg" alt="Detail view" onerror="this.remove()">
+        </figure>
+      </div>
+      <div class="project-copy">
+        <span class="mono">Apr to May 2026</span>
+        <h3>Mach 2.6 carbon fiber rocket</h3>
+        <p>A Level 2 high-power rocket optimized for high-speed flight that reached Mach 2.6, a 62.5% improvement in peak velocity over the fiberglass design it replaced. I manufactured the airframe, fins, nosecone, couplers, and every structural component from carbon fiber in house; only electronics, fasteners, and standard hardware were bought. Dropping nearly 2 lb off the vehicle improved thrust-to-weight, acceleration, and drag losses together.</p>
         <dl class="specs">
-          <div><dt class="mono">Lab</dt><dd>Dr. Boymelgreen, FIU</dd></div>
-          <div><dt class="mono">Program</dt><dd>University Nanosatellite Program</dd></div>
-          <div><dt class="mono">Tools</dt><dd>SolidWorks, ANSYS, MATLAB</dd></div>
-          <div><dt class="mono">Focus</dt><dd>Propulsion and thermal design</dd></div>
+          <div><dt class="mono">Peak velocity</dt><dd>Mach 2.6, up 62.5%</dd></div>
+          <div><dt class="mono">Structure</dt><dd>Carbon fiber, built in house</dd></div>
+          <div><dt class="mono">Mass saved</dt><dd>Nearly 2 lb</dd></div>
+          <div><dt class="mono">Certification</dt><dd>Level 2 high power</dd></div>
         </dl>
       </div>
     </article>
 
     <article class="project rise">
-      <figure class="frame">
-        <span class="tick tl"></span><span class="tick br"></span>
-        <span class="slot mono">Image 4<br>images/project-4.jpg</span>
-        <img src="images/project-4.jpg" alt="Cement graphite foam specimens" onerror="this.remove()">
-      </figure>
-      <div>
-        <span class="mono">Sheet 4 of 4 — Experimental study</span>
-        <h2>Evaporative cooling in cement&ndash;graphite foam</h2>
-        <p>Experimental characterization of evaporative cooling performance in cement–graphite foam specimens, including test setup, data processing, and regression analysis, written up toward a conference paper. Note the sample count and the headline number if you have one.</p>
+      <div class="gallery">
+        <figure class="frame lead">
+          <span class="tick tl"></span><span class="tick br"></span>
+          <span class="slot mono">images/propellant-1.jpg</span>
+          <img src="images/propellant-1.jpg" alt="Solid propellant testing" onerror="this.remove()">
+        </figure>
+        <figure class="frame">
+          <span class="slot mono">propellant-2.jpg</span>
+          <img src="images/propellant-2.jpg" alt="Detail view" onerror="this.remove()">
+        </figure>
+        <figure class="frame">
+          <span class="slot mono">propellant-3.jpg</span>
+          <img src="images/propellant-3.jpg" alt="Detail view" onerror="this.remove()">
+        </figure>
+      </div>
+      <div class="project-copy">
+        <span class="mono">Ongoing</span>
+        <h3>Solid propellant mixing and testing</h3>
+        <p>I've mixed and combustion-tested five propellant formulations, comparing burn behavior, flame structure, exhaust characteristics, and casting quality across them. Tuning the chemistry for combustion temperature, plume behavior, and energy release improved tested performance by 18% and reached 194 s Isp. I also traced a bubble and void entrapment problem to casting viscosity, measured a 14% difference, and reformulated for pourability and grain uniformity.</p>
         <dl class="specs">
-          <div><dt class="mono">Method</dt><dd>Experimental, regression analysis</dd></div>
-          <div><dt class="mono">Tools</dt><dd>MATLAB, Python, LaTeX</dd></div>
-          <div><dt class="mono">Output</dt><dd>Conference paper submission</dd></div>
-          <div><dt class="mono">Context</dt><dd>Thermal management for small spacecraft</dd></div>
+          <div><dt class="mono">Formulations</dt><dd>5 mixed and burned</dd></div>
+          <div><dt class="mono">Performance</dt><dd>194 s Isp, up 18%</dd></div>
+          <div><dt class="mono">Problem solved</dt><dd>Void entrapment in casting</dd></div>
+          <div><dt class="mono">Method</dt><dd>Small-scale combustion tests</dd></div>
+        </dl>
+      </div>
+    </article>
+
+    <article class="project rise">
+      <div class="gallery">
+        <figure class="frame lead">
+          <span class="tick tl"></span><span class="tick br"></span>
+          <span class="slot mono">images/teststand-1.jpg</span>
+          <img src="images/teststand-1.jpg" alt="Solid rocket motor test stand" onerror="this.remove()">
+        </figure>
+        <figure class="frame">
+          <span class="slot mono">teststand-2.jpg</span>
+          <img src="images/teststand-2.jpg" alt="Detail view" onerror="this.remove()">
+        </figure>
+        <figure class="frame">
+          <span class="slot mono">teststand-3.jpg</span>
+          <img src="images/teststand-3.jpg" alt="Detail view" onerror="this.remove()">
+        </figure>
+      </div>
+      <div class="project-copy">
+        <span class="mono">Ongoing</span>
+        <h3>Solid rocket motor test stand</h3>
+        <p>A vertical static-fire stand built from 6061-T6 aluminum T-slot extrusion, roughly 21 in tall and 6 in wide. The upward-facing nozzle load path reacts 1,200 N of thrust as downward axial compression through the frame, about 270 lbf before motor weight. A chamber pressure sensor logs the pressure trace so I can compare response between propellant formulations rather than judging burns by eye.</p>
+        <dl class="specs">
+          <div><dt class="mono">Material</dt><dd>6061-T6 aluminum extrusion</dd></div>
+          <div><dt class="mono">Design load</dt><dd>1,200 N (~270 lbf) axial</dd></div>
+          <div><dt class="mono">Frame</dt><dd>~21 in tall, 6 in wide</dd></div>
+          <div><dt class="mono">Instrumentation</dt><dd>Chamber pressure logging</dd></div>
+        </dl>
+      </div>
+    </article>
+
+    <article class="project rise">
+      <div class="gallery">
+        <figure class="frame lead">
+          <span class="tick tl"></span><span class="tick br"></span>
+          <span class="slot mono">images/regen-1.jpg</span>
+          <img src="images/regen-1.jpg" alt="Regenerative cooling study" onerror="this.remove()">
+        </figure>
+        <figure class="frame">
+          <span class="slot mono">regen-2.jpg</span>
+          <img src="images/regen-2.jpg" alt="Detail view" onerror="this.remove()">
+        </figure>
+        <figure class="frame">
+          <span class="slot mono">regen-3.jpg</span>
+          <img src="images/regen-3.jpg" alt="Detail view" onerror="this.remove()">
+        </figure>
+      </div>
+      <div class="project-copy">
+        <span class="mono">Nov 2025 to Feb 2026</span>
+        <h3>LOX/LH2 regenerative cooling study</h3>
+        <p>An analysis of a LOX/LH2 engine concept at 600 psi chamber pressure using NASA CEARUN and RPA to estimate combustion performance, chamber conditions, and nozzle targets. I ran trade studies across chamber geometry, operating pressure, expansion ratio, and wall heat flux to weigh propulsion performance against thermal loading. The resulting regeneratively cooled chamber concept, with ribbed LOX cooling channels, modeled a 50% reduction in initial wall temperature against an uncooled baseline.</p>
+        <dl class="specs">
+          <div><dt class="mono">Chamber pressure</dt><dd>600 psi</dd></div>
+          <div><dt class="mono">Tools</dt><dd>NASA CEARUN, RPA</dd></div>
+          <div><dt class="mono">Concept</dt><dd>Ribbed LOX cooling channels</dd></div>
+          <div><dt class="mono">Result</dt><dd>50% lower wall temperature</dd></div>
+        </dl>
+      </div>
+    </article>
+
+    <article class="project rise">
+      <div class="gallery">
+        <figure class="frame lead">
+          <span class="tick tl"></span><span class="tick br"></span>
+          <span class="slot mono">images/lora-1.jpg</span>
+          <img src="images/lora-1.jpg" alt="LoRa recovery tracker PCB" onerror="this.remove()">
+        </figure>
+        <figure class="frame">
+          <span class="slot mono">lora-2.jpg</span>
+          <img src="images/lora-2.jpg" alt="Detail view" onerror="this.remove()">
+        </figure>
+        <figure class="frame">
+          <span class="slot mono">lora-3.jpg</span>
+          <img src="images/lora-3.jpg" alt="Detail view" onerror="this.remove()">
+        </figure>
+      </div>
+      <div class="project-copy">
+        <span class="mono">Nov 2024 to Aug 2025</span>
+        <h3>LoRa recovery tracker</h3>
+        <p>Custom PCBs built around an ESP32-S3, an RFM95W LoRa radio, and a u-blox SAM-M10Q GNSS module for live telemetry and recovery positioning. I did the board-level bring-up and debugging across RF, GNSS, sensor interfaces, and LiPo power, and wrote the firmware for the MPU6050 and BMP280/BMP390 sensors, Kalman-filtered apogee detection, adaptive LoRa rate control, and watchdog fault recovery. A 1S/2S power architecture with low-power startup modes gets about 10 hours out of a 400 mAh battery.</p>
+        <dl class="specs">
+          <div><dt class="mono">Hardware</dt><dd>ESP32-S3, RFM95W, SAM-M10Q</dd></div>
+          <div><dt class="mono">Runtime</dt><dd>~10 hr on 400 mAh</dd></div>
+          <div><dt class="mono">Firmware</dt><dd>Kalman apogee, adaptive telemetry</dd></div>
+          <div><dt class="mono">Testing</dt><dd>20–30 hr integration</dd></div>
+        </dl>
+      </div>
+    </article>
+
+    <article class="project rise">
+      <div class="gallery">
+        <figure class="frame lead">
+          <span class="tick tl"></span><span class="tick br"></span>
+          <span class="slot mono">images/irec-1.jpg</span>
+          <img src="images/irec-1.jpg" alt="IREC aerostructures" onerror="this.remove()">
+        </figure>
+        <figure class="frame">
+          <span class="slot mono">irec-2.jpg</span>
+          <img src="images/irec-2.jpg" alt="Detail view" onerror="this.remove()">
+        </figure>
+        <figure class="frame">
+          <span class="slot mono">irec-3.jpg</span>
+          <img src="images/irec-3.jpg" alt="Detail view" onerror="this.remove()">
+        </figure>
+      </div>
+      <div class="project-copy">
+        <span class="mono">Nov 2024 to Jul 2025</span>
+        <h3>IREC rocket aerostructures</h3>
+        <p>Manufacturing engineering for a competition airframe: I built production-ready CAD models and drawings in SolidWorks, turning geometry that couldn't be made into assemblies that could, with interfaces defined clearly enough to hand off. I manufactured aluminum bulkheads and fiberglass airframe components and ran fit checks against avionics, recovery, and mechanical interfaces. I also led component design and assembly workshops, writing build intent into step-by-step procedures to cut rework.</p>
+        <dl class="specs">
+          <div><dt class="mono">Role</dt><dd>Manufacturing engineering</dd></div>
+          <div><dt class="mono">CAD</dt><dd>SolidWorks models and drawings</dd></div>
+          <div><dt class="mono">Fabrication</dt><dd>Aluminum bulkheads, fiberglass</dd></div>
+          <div><dt class="mono">Handoff</dt><dd>Step-by-step build procedures</dd></div>
+        </dl>
+      </div>
+    </article>
+
+    <article class="project rise">
+      <div class="gallery">
+        <figure class="frame lead">
+          <span class="tick tl"></span><span class="tick br"></span>
+          <span class="slot mono">images/flightcomputer-1.jpg</span>
+          <img src="images/flightcomputer-1.jpg" alt="Recovery flight computer" onerror="this.remove()">
+        </figure>
+        <figure class="frame">
+          <span class="slot mono">flightcomputer-2.jpg</span>
+          <img src="images/flightcomputer-2.jpg" alt="Detail view" onerror="this.remove()">
+        </figure>
+        <figure class="frame">
+          <span class="slot mono">flightcomputer-3.jpg</span>
+          <img src="images/flightcomputer-3.jpg" alt="Detail view" onerror="this.remove()">
+        </figure>
+      </div>
+      <div class="project-copy">
+        <span class="mono">Oct 2024 to May 2025</span>
+        <h3>Recovery flight computer</h3>
+        <p>An Arduino-based flight computer using a BMP280 barometer and a 6-axis IMU to log altitude and detect flight events for high-power rocketry. I calibrated and cross-checked the barometric and inertial data to sharpen flight-state estimation and cut measurement noise. Kalman filtering brought the IMU jitter down and stabilized orientation, which I validated by driving quaternion output into a simulated rocket visualization.</p>
+        <dl class="specs">
+          <div><dt class="mono">Sensors</dt><dd>BMP280, 6-axis IMU</dd></div>
+          <div><dt class="mono">Filtering</dt><dd>Kalman, quaternion output</dd></div>
+          <div><dt class="mono">Function</dt><dd>Altitude log, event detection</dd></div>
+          <div><dt class="mono">Validation</dt><dd>Simulated flight visualization</dd></div>
         </dl>
       </div>
     </article>
 
     <footer class="contact">
-      <span class="mono">Contact</span>
-      <h2>Open to internships in aerospace</h2>
+      <h2>Contact</h2>
       <div class="links">
-        <a href="mailto:you@example.com">you@example.com</a>
-        <a href="#">LinkedIn</a>
-        <a href="#">GitHub</a>
-        <a href="#">Resume (PDF)</a>
+        <div>
+          <span class="mono label">Email</span>
+          <a href="mailto:omara004@fiu.edu">omara004@fiu.edu</a>
+        </div>
+        <div>
+          <span class="mono label">Phone</span>
+          <a href="tel:+19549099800">+1 954-909-9800</a>
+        </div>
+        <div>
+          <span class="mono label">Profile</span>
+          <a href="https://www.linkedin.com/in/ordelmaragh9/" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
       </div>
     </footer>
   </div>
