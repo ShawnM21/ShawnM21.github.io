@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ordel Maragh — Mechanical Engineering Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --void:#060912;
+  --deep:#0C1322;
+  --panel:#111A2B;
+  --ink:#EAEEF5;
+  --muted:#9EACC0;
+  --rule:rgba(158,172,192,.22);
+  --gold:#E0AE5E;
+  --measure:1120px;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  color:var(--ink);
+  font-family:"Times New Roman",Times,Georgia,serif;
+  font-size:18px;
+  line-height:1.75;
+  background-color:var(--void);
+  background-image:
+    radial-gradient(1200px 700px at 78% -8%, rgba(70,110,190,.20), transparent 62%),
+    radial-gradient(900px 600px at 8% 12%, rgba(120,70,160,.16), transparent 60%),
+    radial-gradient(1px 1px at 14% 8%, #fff, transparent),
+    radial-gradient(1px 1px at 32% 22%, rgba(255,255,255,.75), transparent),
+    radial-gradient(1.4px 1.4px at 58% 6%, #fff, transparent),
+    radial-gradient(1px 1px at 74% 18%, rgba(255,255,255,.6), transparent),
+    radial-gradient(1px 1px at 88% 9%, #fff, transparent),
+    radial-gradient(1.2px 1.2px at 6% 34%, rgba(255,255,255,.8), transparent),
+    radial-gradient(1px 1px at 46% 40%, rgba(255,255,255,.55), transparent),
+    radial-gradient(1px 1px at 92% 46%, rgba(255,255,255,.7), transparent),
+    radial-gradient(1.3px 1.3px at 24% 62%, #fff, transparent),
+    radial-gradient(1px 1px at 66% 72%, rgba(255,255,255,.6), transparent),
+    radial-gradient(1px 1px at 12% 86%, rgba(255,255,255,.65), transparent),
+    radial-gradient(1.2px 1.2px at 84% 92%, #fff, transparent);
+  background-attachment:fixed;
+  background-repeat:no-repeat;
+}
+.wrap{max-width:var(--measure);margin:0 auto;padding:0 40px}
+a{color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(224,174,94,.4)}
+a:hover{border-bottom-color:var(--gold)}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+
+.mono{
+  font-family:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  font-size:11.5px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--gold);
+  line-height:1.6;
+}
+
+/* ---------- masthead over open sky ---------- */
+.masthead{padding:96px 0 72px;text-align:left}
+.masthead .mono{display:block;margin-bottom:26px;color:var(--muted)}
+h1{
+  font-weight:700;
+  font-size:clamp(46px,9vw,98px);
+  line-height:1.02;
+  letter-spacing:-.015em;
+  margin:0;
+}
+.tagline{
+  font-size:clamp(19px,2.2vw,23px);
+  color:var(--muted);
+  max-width:44ch;
+  margin:24px 0 0;
+  font-style:italic;
+}
+
+/* ---------- the sheet ---------- */
+.sheet{
+  max-width:var(--measure);
+  margin:0 auto 96px;
+  background:var(--deep);
+  border:1px solid var(--rule);
+  border-radius:3px;
+  box-shadow:0 40px 90px rgba(0,0,0,.5);
+}
+.sheet .wrap{padding:0 56px}
+
+.titleblock{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  border-bottom:1px solid var(--rule);
+  margin:0;
+}
+.field{padding:20px 24px 22px;border-right:1px solid var(--rule)}
+.field:last-child{border-right:none}
+.field dt{margin:0 0 6px}
+.field dd{margin:0;font-size:16px;line-height:1.4}
+
+.intro{padding:52px 0 12px;max-width:66ch}
+.intro p{margin:0 0 20px}
+
+.section-head{display:flex;align-items:center;gap:20px;padding-top:44px}
+.section-head::after{content:"";flex:1;height:1px;background:var(--rule)}
+
+.project{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  gap:0 52px;
+  align-items:start;
+  padding:52px 0;
+  border-bottom:1px solid var(--rule);
+}
+.project:last-of-type{border-bottom:none}
+.project:nth-child(even) .frame{order:2}
+
+.frame{
+  position:relative;
+  background:var(--panel);
+  border:1px solid var(--rule);
+  border-radius:2px;
+  aspect-ratio:4/3;
+  overflow:hidden;
+  display:flex;align-items:center;justify-content:center;
+}
+.frame img{width:100%;height:100%;object-fit:cover;display:block;position:relative;z-index:1}
+.slot{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;text-align:center;padding:24px;color:var(--muted)}
+.tick{position:absolute;width:9px;height:9px;border:1px solid var(--gold);opacity:.55}
+.tick.tl{top:9px;left:9px;border-right:0;border-bottom:0}
+.tick.br{bottom:9px;right:9px;border-left:0;border-top:0}
+
+.project h2{
+  font-weight:700;
+  font-size:clamp(27px,3.2vw,37px);
+  line-height:1.12;
+  letter-spacing:-.01em;
+  margin:10px 0 16px;
+}
+.project p{margin:0 0 26px;color:#CFD8E6}
+.specs{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  border-top:1px solid var(--rule);
+  margin:0;
+}
+.specs div{padding:14px 16px 16px;border-bottom:1px solid var(--rule);border-right:1px solid var(--rule)}
+.specs div:nth-child(2n){border-right:none}
+.specs dt{margin:0 0 4px}
+.specs dd{margin:0;font-size:15.5px;line-height:1.4}
+
+.contact{padding:60px 0 72px;border-top:1px solid var(--rule)}
+.contact h2{font-weight:700;font-size:clamp(32px,5vw,54px);margin:14px 0 26px;line-height:1.06}
+.links{display:flex;flex-wrap:wrap;gap:12px 34px;font-size:17px}
+
+.rise{opacity:0;transform:translateY(14px);transition:opacity .7s ease,transform .7s ease}
+.rise.in{opacity:1;transform:none}
+.masthead h1,.masthead .tagline,.masthead .mono{animation:draw .8s ease both}
+.masthead .mono{animation-delay:.05s}
+.masthead h1{animation-delay:.15s}
+.masthead .tagline{animation-delay:.35s}
+@keyframes draw{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+@media (max-width:860px){
+  .wrap{padding:0 22px}
+  .sheet{margin:0 16px 56px}
+  .sheet .wrap{padding:0 24px}
+  .masthead{padding:64px 0 44px}
+  .titleblock{grid-template-columns:repeat(2,1fr)}
+  .field{border-bottom:1px solid var(--rule)}
+  .field:nth-child(2n){border-right:none}
+  .project{grid-template-columns:1fr;gap:28px;padding:40px 0}
+  .project:nth-child(even) .frame{order:0}
+}
+@media (prefers-reduced-motion:reduce){
+  .rise{opacity:1;transform:none;transition:none}
+  .masthead h1,.masthead .tagline,.masthead .mono{animation:none}
+}
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap">
+    <span class="mono">Engineering portfolio — Rev B — 2026</span>
+    <h1>Ordel &ldquo;Shawn&rdquo; Maragh</h1>
+    <p class="tagline">Mechanical engineering — structures, composites, and propulsion hardware that gets built and flown.</p>
+  </div>
+</header>
+
+<div class="sheet">
+  <dl class="titleblock">
+    <div class="field"><dt class="mono">Discipline</dt><dd>Mechanical Engineering</dd></div>
+    <div class="field"><dt class="mono">Institution</dt><dd>Florida International University</dd></div>
+    <div class="field"><dt class="mono">Role</dt><dd>Chief of Vehicle Structures &amp; Dynamics, FIU SEDS</dd></div>
+    <div class="field"><dt class="mono">Status</dt><dd>B.S. expected 2027</dd></div>
+  </dl>
+
+  <div class="wrap">
+    <section class="intro rise">
+      <p>I work on the part of engineering where the analysis has to survive contact with real hardware — laying up carbon fiber airframes, machining motor components, running FEA on structures I then have to build, and recovering flight data to find out what the model missed.</p>
+      <p>Most of my work sits between two places: a university rocketry team where I lead vehicle structures and dynamics, and a research lab where I develop propulsion and thermal systems for small spacecraft.</p>
+    </section>
+
+    <div class="section-head"><span class="mono">Selected work</span></div>
+
+    <article class="project rise">
+      <figure class="frame">
+        <span class="tick tl"></span><span class="tick br"></span>
+        <span class="slot mono">Image 1<br>images/project-1.jpg</span>
+        <img src="images/project-1.jpg" alt="Minimum-diameter rocket airframe" onerror="this.remove()">
+      </figure>
+      <div>
+        <span class="mono">Sheet 1 of 4 — Vehicle design</span>
+        <h2>54 mm minimum-diameter rocket</h2>
+        <p>A minimum-diameter high-power rocket built around an AeroTech K1103X and targeting Mach 2.3. Von Kármán nose cone geometry, a carbon fiber airframe, and dual-deploy recovery on a Featherweight Blue Jay 2 with GPS tracking. Replace this text with what the photo actually shows — the specific problem you solved reads better than a summary.</p>
+        <dl class="specs">
+          <div><dt class="mono">Role</dt><dd>Design and build lead</dd></div>
+          <div><dt class="mono">Airframe</dt><dd>Carbon fiber, 2.125 in OD</dd></div>
+          <div><dt class="mono">Avionics</dt><dd>Blue Jay 2, GPS tracker</dd></div>
+          <div><dt class="mono">Target</dt><dd>Mach 2.3</dd></div>
+        </dl>
+      </div>
+    </article>
+
+    <article class="project rise">
+      <figure class="frame">
+        <span class="tick tl"></span><span class="tick br"></span>
+        <span class="slot mono">Image 2<br>images/project-2.jpg</span>
+        <img src="images/project-2.jpg" alt="Carbon fiber layup on mandrel" onerror="this.remove()">
+      </figure>
+      <div>
+        <span class="mono">Sheet 2 of 4 — Composites manufacturing</span>
+        <h2>Braided carbon fiber airframe tubes</h2>
+        <p>Wet layup of braided carbon sleeve over a 2.125 in mandrel to produce flight-ready airframe tubing in house. Iterated through sleeve tensioning, resin starvation, and mandrel release until the process repeated cleanly. Swap in your own account of what went wrong first and what fixed it.</p>
+        <dl class="specs">
+          <div><dt class="mono">Process</dt><dd>Wet layup, braided sleeve</dd></div>
+          <div><dt class="mono">Tooling</dt><dd>2.125 in mandrel, release system</dd></div>
+          <div><dt class="mono">Materials</dt><dd>Carbon fiber, epoxy</dd></div>
+          <div><dt class="mono">Outcome</dt><dd>Repeatable tube fabrication</dd></div>
+        </dl>
+      </div>
+    </article>
+
+    <article class="project rise">
+      <figure class="frame">
+        <span class="tick tl"></span><span class="tick br"></span>
+        <span class="slot mono">Image 3<br>images/project-3.jpg</span>
+        <img src="images/project-3.jpg" alt="CubeSat propulsion research" onerror="this.remove()">
+      </figure>
+      <div>
+        <span class="mono">Sheet 3 of 4 — Research</span>
+        <h2>Solar-thermal propulsion CubeSat</h2>
+        <p>Undergraduate research assistant on a solar-thermal propulsion system for a CubeSat platform, supporting design, modeling, and test hardware. Add the specific subsystem you own and one result you can point to.</p>
+        <dl class="specs">
+          <div><dt class="mono">Lab</dt><dd>Dr. Boymelgreen, FIU</dd></div>
+          <div><dt class="mono">Program</dt><dd>University Nanosatellite Program</dd></div>
+          <div><dt class="mono">Tools</dt><dd>SolidWorks, ANSYS, MATLAB</dd></div>
+          <div><dt class="mono">Focus</dt><dd>Propulsion and thermal design</dd></div>
+        </dl>
+      </div>
+    </article>
+
+    <article class="project rise">
+      <figure class="frame">
+        <span class="tick tl"></span><span class="tick br"></span>
+        <span class="slot mono">Image 4<br>images/project-4.jpg</span>
+        <img src="images/project-4.jpg" alt="Cement graphite foam specimens" onerror="this.remove()">
+      </figure>
+      <div>
+        <span class="mono">Sheet 4 of 4 — Experimental study</span>
+        <h2>Evaporative cooling in cement&ndash;graphite foam</h2>
+        <p>Experimental characterization of evaporative cooling performance in cement–graphite foam specimens, including test setup, data processing, and regression analysis, written up toward a conference paper. Note the sample count and the headline number if you have one.</p>
+        <dl class="specs">
+          <div><dt class="mono">Method</dt><dd>Experimental, regression analysis</dd></div>
+          <div><dt class="mono">Tools</dt><dd>MATLAB, Python, LaTeX</dd></div>
+          <div><dt class="mono">Output</dt><dd>Conference paper submission</dd></div>
+          <div><dt class="mono">Context</dt><dd>Thermal management for small spacecraft</dd></div>
+        </dl>
+      </div>
+    </article>
+
+    <footer class="contact">
+      <span class="mono">Contact</span>
+      <h2>Open to internships in aerospace</h2>
+      <div class="links">
+        <a href="mailto:you@example.com">you@example.com</a>
+        <a href="#">LinkedIn</a>
+        <a href="#">GitHub</a>
+        <a href="#">Resume (PDF)</a>
+      </div>
+    </footer>
+  </div>
+</div>
+
+<script>
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+}, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+document.querySelectorAll('.rise').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
