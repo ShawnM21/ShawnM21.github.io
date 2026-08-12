@@ -16,7 +16,7 @@
   --muted:#9EACC0;
   --rule:rgba(158,172,192,.22);
   --gold:#E0AE5E;
-  --measure:1180px;
+  --measure:1280px;
 }
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
@@ -133,7 +133,7 @@ figure.portrait .tick.br{bottom:9px;right:9px;border-left:0;border-top:0}
 /* ---------- projects ---------- */
 .project{
   display:grid;
-  grid-template-columns:minmax(0,1.12fr) minmax(0,1fr);
+  grid-template-columns:minmax(0,1.45fr) minmax(0,1fr);
   gap:0 52px;
   align-items:start;
   padding:60px 0;
@@ -154,9 +154,7 @@ figure.portrait .tick.br{bottom:9px;right:9px;border-left:0;border-top:0}
 }
 .frame.lead{grid-column:1 / -1;aspect-ratio:4/3}
 .frame.media{background:#000}
-.gallery.four{grid-template-columns:repeat(4,1fr)}
-.gallery.four .frame{grid-column:span 1}
-.gallery.four .frame.lead{grid-column:1 / -1}
+.gallery.four{grid-template-columns:repeat(2,1fr)}
 .frame.shot img{object-fit:contain;background:#0A0F1A;padding:6px}
 .frame video{width:100%;height:100%;object-fit:cover;display:block;position:relative;z-index:1}
 .frame img{width:100%;height:100%;object-fit:cover;display:block;position:relative;z-index:1}
