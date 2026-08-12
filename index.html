@@ -170,6 +170,29 @@ figure.portrait .tick.br{bottom:9px;right:9px;border-left:0;border-top:0}
 .project.wide .thumbs .frame{aspect-ratio:1/1}
 .project.wide:nth-of-type(even) .frame.lead{grid-column:2;grid-row:1}
 .project.wide:nth-of-type(even) .project-copy{grid-column:1;grid-row:1}
+
+.docs{
+  border-top:1px solid var(--rule);
+  border-bottom:1px solid var(--rule);
+  margin:26px 0 0;
+  padding:18px 0 20px;
+  text-align:left;
+}
+.docs .mono{display:block;margin-bottom:12px}
+.docs ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.docs li{margin:0}
+.docs a{
+  display:inline-block;
+  border:1px solid var(--rule);
+  border-bottom:1px solid var(--rule);
+  border-radius:2px;
+  padding:9px 16px;
+  font-size:16.5px;
+  line-height:1.3;
+  color:var(--gold);
+  transition:border-color .2s ease,background .2s ease;
+}
+.docs a:hover{border-color:var(--gold);background:rgba(224,174,94,.07)}
 .frame.shot img{object-fit:contain;background:#0A0F1A;padding:6px}
 .frame video{width:100%;height:100%;object-fit:cover;display:block;position:relative;z-index:1}
 .frame img{width:100%;height:100%;object-fit:cover;display:block;position:relative;z-index:1}
@@ -266,32 +289,51 @@ figure.portrait .tick.br{bottom:9px;right:9px;border-left:0;border-top:0}
 
     <div class="section-head"><h2>Experience</h2></div>
 
-    <article class="project rise">
-      <div class="gallery">
-        <figure class="frame lead">
-          <span class="tick tl"></span><span class="tick br"></span>
-          <span class="slot mono">images/photothermal-1.jpg</span>
-          <img src="images/photothermal-1.jpg" alt="Solar photothermal propulsion test hardware" onerror="this.remove()">
-        </figure>
-        <figure class="frame">
-          <span class="slot mono">photothermal-2.jpg</span>
-          <img src="images/photothermal-2.jpg" alt="Detail view" onerror="this.remove()">
-        </figure>
-        <figure class="frame">
-          <span class="slot mono">photothermal-3.jpg</span>
-          <img src="images/photothermal-3.jpg" alt="Detail view" onerror="this.remove()">
-        </figure>
-      </div>
+    <article class="project wide rise" style="--cols:5">
+      <figure class="frame lead">
+        <span class="tick tl"></span><span class="tick br"></span>
+        <span class="slot mono">IMG_4245.jpeg</span>
+        <img src="images/IMG_4245.jpeg" alt="Foam specimen on a PLA evaporation disk held in hand" onerror="this.remove()">
+      </figure>
       <div class="project-copy">
         <span class="mono">Research assistant — FIU — Jan 2026 to present</span>
         <h3>Solar photothermal propulsion</h3>
-        <p>I lead lab operations for a solar photothermal propulsion program aimed at CubeSat maneuverability, covering prototype testing, CAD layout, mission modeling, and documentation. I helped define a water-based propulsion test campaign spanning bench and vacuum testing, thrust measurement, pressure stability, thermal response, nozzle performance, and restart behavior, and I fabricate the sodium-alginate and carbon nano-capillary sponges that drive light absorption and steam generation. I also machine the structural mounts, sensor fixtures, and thermal isolation hardware that keep chamber temperature data repeatable, and I contributed to the patent covering the propulsion test stand this work produced.</p>
+        <p>I lead lab operations for a solar photothermal propulsion program aimed at CubeSat maneuverability, covering prototype testing, CAD layout, mission modeling, and documentation. I fabricate the carbon nano-capillary foam specimens that drive light absorption and steam generation, then characterize them on a solar simulator: 3600-second runs logging mass loss against temperature and humidity, with linear regression on the weight trace to extract evaporation rate. Across four mix compositions the 20% cement foam reached 1.81 kg/m²/hr, and a reusability study on the same specimens found a one-time settling drop of about 14% after the first cycle followed by a stable plateau across three further cycles. I also machine the structural mounts, sensor fixtures, and thermal isolation hardware that keep chamber temperature data repeatable, and I contributed to the patent covering the propulsion test stand this work produced.</p>
         <dl class="specs">
           <div><dt class="mono">Patent</dt><dd>Contributed to a patent on the propulsion test stand</dd></div>
           <div><dt class="mono">Partners</dt><dd>AFRL, UNP, industry</dd></div>
-          <div><dt class="mono">Role</dt><dd>Lab operations lead</dd></div>
+          <div><dt class="mono">Best rate</dt><dd>1.81 kg/m²/hr, R² &gt; 0.998</dd></div>
           <div><dt class="mono">Target</dt><dd>4U, 6U, and 8U spacecraft</dd></div>
         </dl>
+        <div class="docs">
+          <span class="mono">Reports</span>
+          <ul>
+            <li><a href="12_Sample_Data__3_.pdf" target="_blank" rel="noopener">Mass Loss Study — four foam compositions on the solar simulator (PDF)</a></li>
+            <li><a href="reliability_test__2_.pdf" target="_blank" rel="noopener">Reliability Study — 20% cement foam reusability over four cycles (PDF)</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="thumbs">
+        <figure class="frame">
+          <span class="slot mono">IMG_4243.jpeg</span>
+          <img src="images/IMG_4243.jpeg" alt="Solar simulator enclosure with sensor and data acquisition wiring" onerror="this.remove()">
+        </figure>
+        <figure class="frame">
+          <span class="slot mono">IMG_4244.jpeg</span>
+          <img src="images/IMG_4244.jpeg" alt="Fume hood with dark baseline run masses recorded on the sash" onerror="this.remove()">
+        </figure>
+        <figure class="frame">
+          <span class="slot mono">80f158d4-c814-4eca-9012-326cf271e365.jpeg</span>
+          <img src="images/80f158d4-c814-4eca-9012-326cf271e365.jpeg" alt="Graphite and cement foam castings side by side in foil molds" onerror="this.remove()">
+        </figure>
+        <figure class="frame">
+          <span class="slot mono">1ed0ea6e-0d2d-4a72-a965-e5426f9bec2d.jpeg</span>
+          <img src="images/1ed0ea6e-0d2d-4a72-a965-e5426f9bec2d.jpeg" alt="Foam specimen curing in the oven" onerror="this.remove()">
+        </figure>
+        <figure class="frame">
+          <span class="slot mono">IMG_4246.jpeg</span>
+          <img src="images/IMG_4246.jpeg" alt="Labeled specimen and SEM sample library" onerror="this.remove()">
+        </figure>
       </div>
     </article>
 
