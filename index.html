@@ -208,6 +208,15 @@ figure.portrait .tick.br{bottom:9px;right:9px;border-left:0;border-top:0}
 }
 .docs a:hover{border-color:var(--gold);background:rgba(224,174,94,.07)}
 .frame.shot img{object-fit:contain;background:#0A0F1A;padding:6px}
+.project.wide .screens{
+  grid-column:1 / -1;
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:16px;
+  margin-top:16px;
+}
+.project.wide .screens .frame{aspect-ratio:9/16;background:#0A0F1A}
+.project.wide .screens .frame img{object-fit:contain}
 .frame video{width:100%;height:100%;object-fit:cover;display:block;position:relative;z-index:1}
 .frame img{width:100%;height:100%;object-fit:cover;display:block;position:relative;z-index:1}
 .slot{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:16px;color:var(--muted);font-size:10.5px;letter-spacing:.08em}
@@ -263,6 +272,7 @@ figure.portrait .tick.br{bottom:9px;right:9px;border-left:0;border-top:0}
   .project.wide .frame.lead,.project.wide .project-copy,.project.wide:nth-of-type(even) .frame.lead,.project.wide:nth-of-type(even) .project-copy{grid-column:1;grid-row:auto}
   .project.wide .thumbs{grid-row:auto;--cols:2;margin-top:4px}
   .project.wide .stack{grid-column:1;grid-row:auto}
+  .project.wide .screens{grid-row:auto;margin-top:8px}
   .section-head{gap:16px;padding-top:48px}
 }
 @media (prefers-reduced-motion:reduce){
@@ -606,7 +616,7 @@ figure.portrait .tick.br{bottom:9px;right:9px;border-left:0;border-top:0}
       <div class="project-copy">
         <span class="mono">Nov 2024 to Aug 2025</span>
         <h3>LoRa recovery tracker</h3>
-        <p>Custom PCBs built around an ESP32-S3, an RFM95W LoRa radio, and a u-blox SAM-M10Q GNSS module for live telemetry and recovery positioning. I did the board-level bring-up and debugging across RF, GNSS, sensor interfaces, and LiPo power, and wrote the firmware for the MPU6050 and BMP280/BMP390 sensors, Kalman-filtered apogee detection, adaptive LoRa rate control, and watchdog fault recovery. A 1S/2S power architecture with low-power startup modes gets about 10 hours out of a 400 mAh battery, and the board serves a live telemetry page over WiFi with raw NMEA output and over-the-air firmware upload for field updates.</p>
+        <p>Custom PCBs built around an ESP32-S3, an RFM95W LoRa radio, and a u-blox SAM-M10Q GNSS module for live telemetry and recovery positioning. I did the board-level bring-up and debugging across RF, GNSS, sensor interfaces, and LiPo power, and wrote the firmware for the MPU6050 and BMP280/BMP390 sensors, Kalman-filtered apogee detection, adaptive LoRa rate control, and watchdog fault recovery. A 1S/2S power architecture with low-power startup modes gets about 10 hours out of a 400 mAh battery, and the board serves a live telemetry page over WiFi with raw NMEA output and over-the-air firmware upload for field updates. I also wrote a companion iOS app that connects over BLE, configures the GNSS receiver in the field — constellation selection, update rate up to 5 Hz, and dynamic model — and shows live position, satellite count, and altitude with a handoff into Apple Maps for recovery.</p>
         <dl class="specs">
           <div><dt class="mono">Hardware</dt><dd>ESP32-S3, RFM95W, SAM-M10Q</dd></div>
           <div><dt class="mono">Runtime</dt><dd>~10 hr on 400 mAh</dd></div>
@@ -630,6 +640,20 @@ figure.portrait .tick.br{bottom:9px;right:9px;border-left:0;border-top:0}
   <figure class="frame shot">
           <span class="slot mono">IMG_3236.png</span>
           <img src="images/IMG_3236.png" alt="ESP32-S3 schematic with UART, JTAG, and boot option headers" onerror="this.remove()">
+        </figure>
+      </div>
+          <div class="screens">
+        <figure class="frame">
+          <span class="slot mono">IMG_3340.jpeg</span>
+          <img src="images/IMG_3340.jpeg" alt="iOS app scanning and connecting to the tracker over BLE" onerror="this.remove()">
+        </figure>
+        <figure class="frame">
+          <span class="slot mono">IMG_3263.jpeg</span>
+          <img src="images/IMG_3263.jpeg" alt="GNSS constellation, update rate, and dynamic model configuration screen" onerror="this.remove()">
+        </figure>
+        <figure class="frame">
+          <span class="slot mono">IMG_3271.jpeg</span>
+          <img src="images/IMG_3271.jpeg" alt="Live tracker view showing GPS fix, satellite count, and altitude" onerror="this.remove()">
         </figure>
       </div>
     </article>
