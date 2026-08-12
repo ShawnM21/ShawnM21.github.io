@@ -155,6 +155,21 @@ figure.portrait .tick.br{bottom:9px;right:9px;border-left:0;border-top:0}
 .frame.lead{grid-column:1 / -1;aspect-ratio:4/3}
 .frame.media{background:#000}
 .gallery.four{grid-template-columns:repeat(2,1fr)}
+
+/* image-heavy projects: lead beside the text, thumbs wrapping full width below */
+.project.wide{align-items:start}
+.project.wide .frame.lead{grid-column:1;grid-row:1;aspect-ratio:4/3}
+.project.wide .project-copy{grid-column:2;grid-row:1}
+.project.wide .thumbs{
+  grid-column:1 / -1;grid-row:2;
+  display:grid;
+  grid-template-columns:repeat(var(--cols,4),minmax(0,1fr));
+  gap:16px;
+  margin-top:34px;
+}
+.project.wide .thumbs .frame{aspect-ratio:1/1}
+.project.wide:nth-of-type(even) .frame.lead{grid-column:2;grid-row:1}
+.project.wide:nth-of-type(even) .project-copy{grid-column:1;grid-row:1}
 .frame.shot img{object-fit:contain;background:#0A0F1A;padding:6px}
 .frame video{width:100%;height:100%;object-fit:cover;display:block;position:relative;z-index:1}
 .frame img{width:100%;height:100%;object-fit:cover;display:block;position:relative;z-index:1}
@@ -208,6 +223,8 @@ figure.portrait .tick.br{bottom:9px;right:9px;border-left:0;border-top:0}
   .field{border-bottom:1px solid var(--rule);border-right:none}
   .project{grid-template-columns:1fr;gap:28px;padding:44px 0}
   .project:nth-of-type(even) .gallery{order:0}
+  .project.wide .frame.lead,.project.wide .project-copy,.project.wide:nth-of-type(even) .frame.lead,.project.wide:nth-of-type(even) .project-copy{grid-column:1;grid-row:auto}
+  .project.wide .thumbs{grid-row:auto;--cols:2;margin-top:4px}
   .section-head{gap:16px;padding-top:48px}
 }
 @media (prefers-reduced-motion:reduce){
@@ -309,32 +326,14 @@ figure.portrait .tick.br{bottom:9px;right:9px;border-left:0;border-top:0}
 
     <div class="section-head"><h2>Projects</h2></div>
 
-    <article class="project rise">
-      <div class="gallery four">
-        <figure class="frame lead media">
+    <article class="project wide rise" style="--cols:4">
+      <figure class="frame lead media">
           <span class="tick tl"></span><span class="tick br"></span>
           <video controls preload="metadata" playsinline>
             <source src="engine-firing.mp4" type="video/mp4">
             <a href="engine-firing.mp4">Download the engine clip</a>
           </video>
         </figure>
-        <figure class="frame">
-          <span class="slot mono">IMG_4250.jpeg</span>
-          <img src="images/IMG_4250.jpeg" alt="Machined chamber and nozzle assembly with injector flange" onerror="this.remove()">
-        </figure>
-        <figure class="frame">
-          <span class="slot mono">1786508873511_image.png</span>
-          <img src="images/1786508873511_image.png" alt="SolidWorks model of the chamber, throat, and conical nozzle" onerror="this.remove()">
-        </figure>
-        <figure class="frame">
-          <span class="slot mono">IMG_4233.jpeg</span>
-          <img src="images/IMG_4233.jpeg" alt="Chamber standing on the injector flange showing the nozzle contraction" onerror="this.remove()">
-        </figure>
-        <figure class="frame">
-          <span class="slot mono">IMG_4234.jpeg</span>
-          <img src="images/IMG_4234.jpeg" alt="Axial view down the chamber bore through to the throat" onerror="this.remove()">
-        </figure>
-      </div>
       <div class="project-copy">
         <span class="mono">Jul 2026</span>
         <h3>600 lbf N2O/IPA liquid engine</h3>
@@ -346,40 +345,32 @@ figure.portrait .tick.br{bottom:9px;right:9px;border-left:0;border-top:0}
           <div><dt class="mono">Injector</dt><dd>32-orifice triplet, 20% drop</dd></div>
         </dl>
       </div>
+      <div class="thumbs">
+  <figure class="frame">
+          <span class="slot mono">IMG_4250.jpeg</span>
+          <img src="images/IMG_4250.jpeg" alt="Machined chamber and nozzle assembly with injector flange" onerror="this.remove()">
+        </figure>
+  <figure class="frame">
+          <span class="slot mono">1786508873511_image.png</span>
+          <img src="images/1786508873511_image.png" alt="SolidWorks model of the chamber, throat, and conical nozzle" onerror="this.remove()">
+        </figure>
+  <figure class="frame">
+          <span class="slot mono">IMG_4233.jpeg</span>
+          <img src="images/IMG_4233.jpeg" alt="Chamber standing on the injector flange showing the nozzle contraction" onerror="this.remove()">
+        </figure>
+  <figure class="frame">
+          <span class="slot mono">IMG_4234.jpeg</span>
+          <img src="images/IMG_4234.jpeg" alt="Axial view down the chamber bore through to the throat" onerror="this.remove()">
+        </figure>
+      </div>
     </article>
 
-    <article class="project rise">
-      <div class="gallery four">
-        <figure class="frame lead">
+    <article class="project wide rise" style="--cols:3">
+      <figure class="frame lead">
           <span class="tick tl"></span><span class="tick br"></span>
           <span class="slot mono">IMG_4185.jpeg</span>
           <img src="images/IMG_4185.jpeg" alt="Completed carbon fiber rocket standing in the lab" onerror="this.remove()">
         </figure>
-        <figure class="frame">
-          <span class="slot mono">IMG_4192.jpeg</span>
-          <img src="images/IMG_4192.jpeg" alt="Rocket on the launch rail before flight" onerror="this.remove()">
-        </figure>
-        <figure class="frame">
-          <span class="slot mono">IMG_4191.jpeg</span>
-          <img src="images/IMG_4191.jpeg" alt="Full vehicle laid out after recovery" onerror="this.remove()">
-        </figure>
-        <figure class="frame">
-          <span class="slot mono">IMG_4172.jpeg</span>
-          <img src="images/IMG_4172.jpeg" alt="Fin can showing filleted carbon fin joints" onerror="this.remove()">
-        </figure>
-        <figure class="frame">
-          <span class="slot mono">IMG_4213.jpeg</span>
-          <img src="images/IMG_4213.jpeg" alt="Close view of a fin root fillet and airframe weave" onerror="this.remove()">
-        </figure>
-        <figure class="frame">
-          <span class="slot mono">IMG_4171.jpeg</span>
-          <img src="images/IMG_4171.jpeg" alt="Airframe and fin can before finishing" onerror="this.remove()">
-        </figure>
-        <figure class="frame">
-          <span class="slot mono">IMG_4170.jpeg</span>
-          <img src="images/IMG_4170.jpeg" alt="Carbon fiber airframe tube surface finish" onerror="this.remove()">
-        </figure>
-      </div>
       <div class="project-copy">
         <span class="mono">Apr to May 2026</span>
         <h3>Mach 2.6 carbon fiber rocket</h3>
@@ -390,6 +381,32 @@ figure.portrait .tick.br{bottom:9px;right:9px;border-left:0;border-top:0}
           <div><dt class="mono">Mass saved</dt><dd>Nearly 2 lb</dd></div>
           <div><dt class="mono">Certification</dt><dd>Level 2 high power</dd></div>
         </dl>
+      </div>
+      <div class="thumbs">
+  <figure class="frame">
+          <span class="slot mono">IMG_4192.jpeg</span>
+          <img src="images/IMG_4192.jpeg" alt="Rocket on the launch rail before flight" onerror="this.remove()">
+        </figure>
+  <figure class="frame">
+          <span class="slot mono">IMG_4191.jpeg</span>
+          <img src="images/IMG_4191.jpeg" alt="Full vehicle laid out after recovery" onerror="this.remove()">
+        </figure>
+  <figure class="frame">
+          <span class="slot mono">IMG_4172.jpeg</span>
+          <img src="images/IMG_4172.jpeg" alt="Fin can showing filleted carbon fin joints" onerror="this.remove()">
+        </figure>
+  <figure class="frame">
+          <span class="slot mono">IMG_4213.jpeg</span>
+          <img src="images/IMG_4213.jpeg" alt="Close view of a fin root fillet and airframe weave" onerror="this.remove()">
+        </figure>
+  <figure class="frame">
+          <span class="slot mono">IMG_4171.jpeg</span>
+          <img src="images/IMG_4171.jpeg" alt="Airframe and fin can before finishing" onerror="this.remove()">
+        </figure>
+  <figure class="frame">
+          <span class="slot mono">IMG_4170.jpeg</span>
+          <img src="images/IMG_4170.jpeg" alt="Carbon fiber airframe tube surface finish" onerror="this.remove()">
+        </figure>
       </div>
     </article>
 
@@ -480,30 +497,12 @@ figure.portrait .tick.br{bottom:9px;right:9px;border-left:0;border-top:0}
       </div>
     </article>
 
-    <article class="project rise">
-      <div class="gallery four">
-        <figure class="frame lead">
+    <article class="project wide rise" style="--cols:4">
+      <figure class="frame lead">
           <span class="tick tl"></span><span class="tick br"></span>
           <span class="slot mono">IMG_3266.jpeg</span>
           <img src="images/IMG_3266.jpeg" alt="Completed LoRa tracker with 915 MHz antenna and battery lead" onerror="this.remove()">
         </figure>
-        <figure class="frame">
-          <span class="slot mono">IMG_3220.jpeg</span>
-          <img src="images/IMG_3220.jpeg" alt="Assembled board held in a vise during bring-up" onerror="this.remove()">
-        </figure>
-        <figure class="frame">
-          <span class="slot mono">IMG_3204.jpeg</span>
-          <img src="images/IMG_3204.jpeg" alt="Bare fabricated PCB before assembly" onerror="this.remove()">
-        </figure>
-        <figure class="frame shot">
-          <span class="slot mono">IMG_3231.png</span>
-          <img src="images/IMG_3231.png" alt="Live telemetry web interface showing raw NMEA output" onerror="this.remove()">
-        </figure>
-        <figure class="frame shot">
-          <span class="slot mono">IMG_3236.png</span>
-          <img src="images/IMG_3236.png" alt="ESP32-S3 schematic with UART, JTAG, and boot option headers" onerror="this.remove()">
-        </figure>
-      </div>
       <div class="project-copy">
         <span class="mono">Nov 2024 to Aug 2025</span>
         <h3>LoRa recovery tracker</h3>
@@ -514,6 +513,24 @@ figure.portrait .tick.br{bottom:9px;right:9px;border-left:0;border-top:0}
           <div><dt class="mono">Firmware</dt><dd>Kalman apogee, adaptive telemetry</dd></div>
           <div><dt class="mono">Testing</dt><dd>20–30 hr integration</dd></div>
         </dl>
+      </div>
+      <div class="thumbs">
+  <figure class="frame">
+          <span class="slot mono">IMG_3220.jpeg</span>
+          <img src="images/IMG_3220.jpeg" alt="Assembled board held in a vise during bring-up" onerror="this.remove()">
+        </figure>
+  <figure class="frame">
+          <span class="slot mono">IMG_3204.jpeg</span>
+          <img src="images/IMG_3204.jpeg" alt="Bare fabricated PCB before assembly" onerror="this.remove()">
+        </figure>
+  <figure class="frame shot">
+          <span class="slot mono">IMG_3231.png</span>
+          <img src="images/IMG_3231.png" alt="Live telemetry web interface showing raw NMEA output" onerror="this.remove()">
+        </figure>
+  <figure class="frame shot">
+          <span class="slot mono">IMG_3236.png</span>
+          <img src="images/IMG_3236.png" alt="ESP32-S3 schematic with UART, JTAG, and boot option headers" onerror="this.remove()">
+        </figure>
       </div>
     </article>
 
