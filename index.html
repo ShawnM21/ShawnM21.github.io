@@ -154,6 +154,10 @@ figure.portrait .tick.br{bottom:9px;right:9px;border-left:0;border-top:0}
 }
 .frame.lead{grid-column:1 / -1;aspect-ratio:4/3}
 .frame.media{background:#000}
+.gallery.four{grid-template-columns:repeat(4,1fr)}
+.gallery.four .frame{grid-column:span 1}
+.gallery.four .frame.lead{grid-column:1 / -1}
+.frame.shot img{object-fit:contain;background:#0A0F1A;padding:6px}
 .frame video{width:100%;height:100%;object-fit:cover;display:block;position:relative;z-index:1}
 .frame img{width:100%;height:100%;object-fit:cover;display:block;position:relative;z-index:1}
 .slot{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:16px;color:var(--muted);font-size:10.5px;letter-spacing:.08em}
@@ -455,25 +459,33 @@ figure.portrait .tick.br{bottom:9px;right:9px;border-left:0;border-top:0}
     </article>
 
     <article class="project rise">
-      <div class="gallery">
+      <div class="gallery four">
         <figure class="frame lead">
           <span class="tick tl"></span><span class="tick br"></span>
-          <span class="slot mono">images/lora-1.jpg</span>
-          <img src="images/lora-1.jpg" alt="LoRa recovery tracker PCB" onerror="this.remove()">
+          <span class="slot mono">IMG_3266.jpeg</span>
+          <img src="images/IMG_3266.jpeg" alt="Completed LoRa tracker with 915 MHz antenna and battery lead" onerror="this.remove()">
         </figure>
         <figure class="frame">
-          <span class="slot mono">lora-2.jpg</span>
-          <img src="images/lora-2.jpg" alt="Detail view" onerror="this.remove()">
+          <span class="slot mono">IMG_3220.jpeg</span>
+          <img src="images/IMG_3220.jpeg" alt="Assembled board held in a vise during bring-up" onerror="this.remove()">
         </figure>
         <figure class="frame">
-          <span class="slot mono">lora-3.jpg</span>
-          <img src="images/lora-3.jpg" alt="Detail view" onerror="this.remove()">
+          <span class="slot mono">IMG_3204.jpeg</span>
+          <img src="images/IMG_3204.jpeg" alt="Bare fabricated PCB before assembly" onerror="this.remove()">
+        </figure>
+        <figure class="frame shot">
+          <span class="slot mono">IMG_3231.png</span>
+          <img src="images/IMG_3231.png" alt="Live telemetry web interface showing raw NMEA output" onerror="this.remove()">
+        </figure>
+        <figure class="frame shot">
+          <span class="slot mono">IMG_3236.png</span>
+          <img src="images/IMG_3236.png" alt="ESP32-S3 schematic with UART, JTAG, and boot option headers" onerror="this.remove()">
         </figure>
       </div>
       <div class="project-copy">
         <span class="mono">Nov 2024 to Aug 2025</span>
         <h3>LoRa recovery tracker</h3>
-        <p>Custom PCBs built around an ESP32-S3, an RFM95W LoRa radio, and a u-blox SAM-M10Q GNSS module for live telemetry and recovery positioning. I did the board-level bring-up and debugging across RF, GNSS, sensor interfaces, and LiPo power, and wrote the firmware for the MPU6050 and BMP280/BMP390 sensors, Kalman-filtered apogee detection, adaptive LoRa rate control, and watchdog fault recovery. A 1S/2S power architecture with low-power startup modes gets about 10 hours out of a 400 mAh battery.</p>
+        <p>Custom PCBs built around an ESP32-S3, an RFM95W LoRa radio, and a u-blox SAM-M10Q GNSS module for live telemetry and recovery positioning. I did the board-level bring-up and debugging across RF, GNSS, sensor interfaces, and LiPo power, and wrote the firmware for the MPU6050 and BMP280/BMP390 sensors, Kalman-filtered apogee detection, adaptive LoRa rate control, and watchdog fault recovery. A 1S/2S power architecture with low-power startup modes gets about 10 hours out of a 400 mAh battery, and the board serves a live telemetry page over WiFi with raw NMEA output and over-the-air firmware upload for field updates.</p>
         <dl class="specs">
           <div><dt class="mono">Hardware</dt><dd>ESP32-S3, RFM95W, SAM-M10Q</dd></div>
           <div><dt class="mono">Runtime</dt><dd>~10 hr on 400 mAh</dd></div>
