@@ -293,9 +293,13 @@ figure.portrait .tick.br{bottom:9px;right:9px;border-left:0;border-top:0}
     grid-template-columns:1fr;
     gap:12px;
   }
-  .frame,.frame.lead,.project.wide .thumbs .frame,
-  .project.wide .stack .side .frame,.project.wide .stack .frame.lead{
+  .frame.lead,.project.wide .stack .frame.lead{aspect-ratio:4/3}
+  .gallery .frame:not(.lead),
+  .project.wide .thumbs .frame,
+  .project.wide .stack .side .frame{
     aspect-ratio:4/3;
+    width:86%;
+    margin:0 auto;
   }
   .project.wide .screens{grid-template-columns:1fr 1fr;gap:10px}
   .project.wide .screens .frame{aspect-ratio:9/16}
