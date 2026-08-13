@@ -276,6 +276,35 @@ figure.portrait .tick.br{bottom:9px;right:9px;border-left:0;border-top:0}
   .project.wide .stack{grid-column:1;grid-row:auto}
   .project.wide .screens{grid-row:auto;margin-top:8px}
   .section-head{gap:16px;padding-top:48px}
+  .project.wide .stack .side{grid-template-columns:1fr 1fr;gap:12px}
+  .gallery,.gallery.four{grid-template-columns:1fr 1fr;gap:12px}
+  .project.wide .screens{max-width:100%;grid-template-columns:1fr 1fr;gap:12px}
+  .portraits{gap:16px}
+  figure.portrait{width:min(320px,86%)}
+}
+
+/* phones: give every image the full column so nothing reads as a postage stamp */
+@media (max-width:640px){
+  .wrap{padding:0 16px}
+  .sheet{margin:0 8px 40px;border-radius:2px}
+  .sheet .wrap{padding:0 16px}
+  .project{gap:22px;padding:36px 0}
+  .gallery,.gallery.four,.project.wide .thumbs,.project.wide .stack .side{
+    grid-template-columns:1fr;
+    gap:12px;
+  }
+  .frame,.frame.lead,.project.wide .thumbs .frame,
+  .project.wide .stack .side .frame,.project.wide .stack .frame.lead{
+    aspect-ratio:4/3;
+  }
+  .project.wide .screens{grid-template-columns:1fr 1fr;gap:10px}
+  .project.wide .screens .frame{aspect-ratio:9/16}
+  .frame.shot img{padding:3px}
+  .specs{grid-template-columns:1fr}
+  .specs div{border-right:none}
+  figure.portrait{width:100%;aspect-ratio:4/5}
+  .portraits{gap:12px}
+  .docs a{display:block}
 }
 @media (prefers-reduced-motion:reduce){
   .rise{opacity:1;transform:none;transition:none}
