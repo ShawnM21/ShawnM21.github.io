@@ -469,6 +469,47 @@ figure.portrait .tick.br{bottom:9px;right:9px;border-left:0;border-top:0}
 
     <div class="section-head"><h2>Projects</h2></div>
 
+    <article class="project wide rise" style="--cols:3">
+      <figure class="frame lead">
+        <span class="tick tl"></span><span class="tick br"></span>
+        <span class="slot mono">IMG_4275.jpeg</span>
+        <img src="images/IMG_4275.jpeg" alt="Fin set, centering rings, airframe, and nosecone after rinse" onerror="this.remove()">
+      </figure>
+      <div class="project-copy">
+        <span class="mono">In progress</span>
+        <h3>Level 3 rocket</h3>
+        <p>My largest build to date and a deliberate departure from the minimum-diameter vehicles I usually fly. This one is conventional high-power construction: 12 ft tall, built around a 75 mm motor mount and sized to take the thrust of an M2500. The airframe is filament-wound fiberglass with fiberglass bulkheads and machined fin stock, and at a 34 lb liftoff weight the current sim puts it near 8,900 ft. Nothing has flown yet, so every number here is predicted rather than measured.</p>
+        <dl class="specs">
+          <div><dt class="mono">Length</dt><dd>12 ft, 34 lb liftoff</dd></div>
+          <div><dt class="mono">Motor</dt><dd>75 mm mount, M2500 class</dd></div>
+          <div><dt class="mono">Structure</dt><dd>Wound fiberglass, fiberglass bulkheads</dd></div>
+          <div><dt class="mono">Predicted apogee</dt><dd>~8,900 ft, unflown</dd></div>
+        </dl>
+      </div>
+      <div class="thumbs">
+        <figure class="frame">
+          <span class="slot mono">IMG_4267.jpeg</span>
+          <img src="images/IMG_4267.jpeg" alt="Fin set and centering rings laid out with the nosecone and coupler" onerror="this.remove()">
+        </figure>
+        <figure class="frame">
+          <span class="slot mono">IMG_4268.jpeg</span>
+          <img src="images/IMG_4268.jpeg" alt="Single fin showing the cut logo detail and machined edges" onerror="this.remove()">
+        </figure>
+        <figure class="frame">
+          <span class="slot mono">IMG_4271.jpeg</span>
+          <img src="images/IMG_4271.jpeg" alt="Fiberglass bulkheads and centering rings" onerror="this.remove()">
+        </figure>
+        <figure class="frame">
+          <span class="slot mono">IMG_4272.jpeg</span>
+          <img src="images/IMG_4272.jpeg" alt="Filament-wound airframe section on the scale during mass budgeting" onerror="this.remove()">
+        </figure>
+        <figure class="frame">
+          <span class="slot mono">IMG_4273.jpeg</span>
+          <img src="images/IMG_4273.jpeg" alt="Wound fiberglass coupler section held for inspection" onerror="this.remove()">
+        </figure>
+      </div>
+    </article>
+
     <article class="project wide rise" style="--cols:4">
       <figure class="frame lead media">
           <span class="tick tl"></span><span class="tick br"></span>
@@ -748,8 +789,33 @@ const io = new IntersectionObserver((entries) => {
 document.querySelectorAll('.rise').forEach(el => io.observe(el));
 </script>
 
-<!-- Cloudflare Web Analytics -->
-<script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "1c662b9404bc45aa94d836ad699d564b"}'></script>
+<!-- Cloudflare Web Analytics — skipped for the owner and for local previews -->
+<script>
+(function () {
+  var TOKEN = "1c662b9404bc45aa94d836ad699d564b";
+  var flag = null;
+  try {
+    // Visit ?noanalytics=1 once on a device to stop counting yourself there.
+    // Visit ?noanalytics=0 to start counting again.
+    var q = new URLSearchParams(location.search).get("noanalytics");
+    if (q === "1") localStorage.setItem("cf-optout", "1");
+    if (q === "0") localStorage.removeItem("cf-optout");
+    flag = localStorage.getItem("cf-optout");
+  } catch (e) { /* storage blocked — just load normally */ }
+
+  var local = location.hostname === "localhost" ||
+              location.hostname === "127.0.0.1" ||
+              location.protocol === "file:";
+
+  if (flag === "1" || local) return;
+
+  var b = document.createElement("script");
+  b.defer = true;
+  b.src = "https://static.cloudflareinsights.com/beacon.min.js";
+  b.setAttribute("data-cf-beacon", '{"token": "' + TOKEN + '"}');
+  document.body.appendChild(b);
+})();
+</script>
 <!-- End Cloudflare Web Analytics -->
 </body>
 </html>
