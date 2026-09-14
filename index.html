@@ -1,4 +1,19 @@
 <!DOCTYPE html>
+<!--
+  ===========================================================
+  ADDING CAPTIONS
+  Every image has a line like this underneath it:
+
+      <figcaption class="cap"></figcaption>
+
+  Type your text between the tags:
+
+      <figcaption class="cap">Fin can after final sanding.</figcaption>
+
+  Leave it empty and no caption appears. One short sentence
+  works best — it sits over the bottom of the photo.
+  ===========================================================
+-->
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -208,6 +223,25 @@ figure.portrait .tick.br{bottom:9px;right:9px;border-left:0;border-top:0}
 }
 .docs a:hover{border-color:var(--gold);background:rgba(224,174,94,.07)}
 .frame.shot img{object-fit:contain;background:#0A0F1A;padding:6px}
+
+/* ---------- photo captions ----------
+   Type between the <figcaption> tags under any image.
+   Leave it empty and nothing shows.                       */
+.cap{
+  position:absolute;
+  left:0;right:0;bottom:0;
+  z-index:3;
+  margin:0;
+  padding:26px 12px 9px;
+  font-size:13.5px;
+  line-height:1.35;
+  color:#F2F5FA;
+  text-align:left;
+  background:linear-gradient(to top, rgba(4,8,16,.92) 0%, rgba(4,8,16,.72) 45%, rgba(4,8,16,0) 100%);
+  pointer-events:none;
+}
+.cap:empty{display:none}
+.frame.lead .cap{font-size:15px;padding:34px 16px 12px}
 .project.wide .screens{
   grid-column:1 / -1;
   display:grid;
@@ -362,24 +396,29 @@ figure.portrait .tick.br{bottom:9px;right:9px;border-left:0;border-top:0}
           <span class="tick tl"></span><span class="tick br"></span>
           <span class="slot mono">IMG_4245.jpeg</span>
           <img src="images/IMG_4245.jpeg" alt="Foam specimen on a PLA evaporation disk held in hand" onerror="this.remove()">
+          <figcaption class="cap"></figcaption>
         </figure>
         <div class="side">
           <figure class="frame">
             <span class="slot mono">IMG_3747.jpeg</span>
             <img src="images/IMG_3747.jpeg" alt="Specimen under the solar simulator lamp on the evaporation disk" onerror="this.remove()">
-          </figure>
+            <figcaption class="cap"></figcaption>
+        </figure>
           <figure class="frame">
             <span class="slot mono">IMG_3748.jpeg</span>
             <img src="images/IMG_3748.jpeg" alt="Balance reading 12.71 g mid-run with sensors logging to Arduino" onerror="this.remove()">
-          </figure>
+            <figcaption class="cap"></figcaption>
+        </figure>
           <figure class="frame">
             <span class="slot mono">IMG_4243.jpeg</span>
             <img src="images/IMG_4243.jpeg" alt="Solar simulator enclosure with sensor and data acquisition wiring" onerror="this.remove()">
-          </figure>
+            <figcaption class="cap"></figcaption>
+        </figure>
           <figure class="frame">
             <span class="slot mono">IMG_4244.jpeg</span>
             <img src="images/IMG_4244.jpeg" alt="Fume hood with dark baseline run masses recorded on the sash" onerror="this.remove()">
-          </figure>
+            <figcaption class="cap"></figcaption>
+        </figure>
         </div>
       </div>
       <div class="project-copy">
@@ -404,14 +443,17 @@ figure.portrait .tick.br{bottom:9px;right:9px;border-left:0;border-top:0}
         <figure class="frame">
           <span class="slot mono">80f158d4-c814-4eca-9012-326cf271e365.jpeg</span>
           <img src="images/80f158d4-c814-4eca-9012-326cf271e365.jpeg" alt="Graphite and cement foam castings side by side in foil molds" onerror="this.remove()">
+          <figcaption class="cap"></figcaption>
         </figure>
         <figure class="frame">
           <span class="slot mono">1ed0ea6e-0d2d-4a72-a965-e5426f9bec2d.jpeg</span>
           <img src="images/1ed0ea6e-0d2d-4a72-a965-e5426f9bec2d.jpeg" alt="Foam specimen curing in the oven" onerror="this.remove()">
+          <figcaption class="cap"></figcaption>
         </figure>
         <figure class="frame">
           <span class="slot mono">IMG_4246.jpeg</span>
           <img src="images/IMG_4246.jpeg" alt="Labeled specimen and SEM sample library" onerror="this.remove()">
+          <figcaption class="cap"></figcaption>
         </figure>
       </div>
     </article>
@@ -423,7 +465,8 @@ figure.portrait .tick.br{bottom:9px;right:9px;border-left:0;border-top:0}
           <source src="seds-build.mp4" type="video/mp4">
           <a href="seds-build.mp4">Download the build clip</a>
         </video>
-      </figure>
+        <figcaption class="cap"></figcaption>
+        </figure>
       <div class="project-copy">
         <span class="mono">FIU SEDS — Oct 2025 to Apr 2026</span>
         <h3>Chief of vehicle structures and dynamics</h3>
@@ -439,30 +482,37 @@ figure.portrait .tick.br{bottom:9px;right:9px;border-left:0;border-top:0}
         <figure class="frame">
           <span class="slot mono">c510430f-1300-4f03-94c8-6b0ca907b4e6.jpeg</span>
           <img src="images/c510430f-1300-4f03-94c8-6b0ca907b4e6.jpeg" alt="Team wet-laying carbon fiber panels on a shared bench" onerror="this.remove()">
+          <figcaption class="cap"></figcaption>
         </figure>
         <figure class="frame">
           <span class="slot mono">IMG_3416.jpeg</span>
           <img src="images/IMG_3416.jpeg" alt="Member in full PPE wet-sanding a carbon nosecone" onerror="this.remove()">
+          <figcaption class="cap"></figcaption>
         </figure>
         <figure class="frame">
           <span class="slot mono">5deb7583-5b21-4447-8eef-411de78d35ff.jpeg</span>
           <img src="images/5deb7583-5b21-4447-8eef-411de78d35ff.jpeg" alt="Respirator-equipped members wetting out fiberglass sleeve" onerror="this.remove()">
+          <figcaption class="cap"></figcaption>
         </figure>
         <figure class="frame">
           <span class="slot mono">IMG_3630.jpeg</span>
           <img src="images/IMG_3630.jpeg" alt="Manufacturing session with multiple layups running in parallel" onerror="this.remove()">
+          <figcaption class="cap"></figcaption>
         </figure>
         <figure class="frame">
           <span class="slot mono">IMG_3631.jpeg</span>
           <img src="images/IMG_3631.jpeg" alt="Close view of sleeve layup and resin wet-out in progress" onerror="this.remove()">
+          <figcaption class="cap"></figcaption>
         </figure>
         <figure class="frame">
           <span class="slot mono">b3247d2b-cef4-4b5d-b19c-716afe1f3c01.jpeg</span>
           <img src="images/b3247d2b-cef4-4b5d-b19c-716afe1f3c01.jpeg" alt="Airframe sections and internal structure laid out during assembly" onerror="this.remove()">
+          <figcaption class="cap"></figcaption>
         </figure>
         <figure class="frame">
           <span class="slot mono">1272bdc5-d2f4-4735-b3d6-c128ccc52dbd.jpeg</span>
           <img src="images/1272bdc5-d2f4-4735-b3d6-c128ccc52dbd.jpeg" alt="Full team build night in the makerspace" onerror="this.remove()">
+          <figcaption class="cap"></figcaption>
         </figure>
       </div>
     </article>
@@ -473,7 +523,8 @@ figure.portrait .tick.br{bottom:9px;right:9px;border-left:0;border-top:0}
         <span class="tick tl"></span><span class="tick br"></span>
         <span class="slot mono">IMG_4275.jpeg</span>
         <img src="images/IMG_4275.jpeg" alt="Fin set, centering rings, airframe, and nosecone after rinse" onerror="this.remove()">
-      </figure>
+        <figcaption class="cap"></figcaption>
+        </figure>
       <div class="project-copy">
         <span class="mono">In progress</span>
         <h3>Level 3 rocket</h3>
@@ -489,25 +540,93 @@ figure.portrait .tick.br{bottom:9px;right:9px;border-left:0;border-top:0}
         <figure class="frame">
           <span class="slot mono">IMG_4267.jpeg</span>
           <img src="images/IMG_4267.jpeg" alt="Fin set and centering rings laid out with the nosecone and coupler" onerror="this.remove()">
+          <figcaption class="cap"></figcaption>
         </figure>
         <figure class="frame">
           <span class="slot mono">IMG_4268.jpeg</span>
           <img src="images/IMG_4268.jpeg" alt="Single fin showing the cut logo detail and machined edges" onerror="this.remove()">
+          <figcaption class="cap"></figcaption>
         </figure>
         <figure class="frame">
           <span class="slot mono">IMG_4271.jpeg</span>
           <img src="images/IMG_4271.jpeg" alt="Fiberglass bulkheads and centering rings" onerror="this.remove()">
+          <figcaption class="cap"></figcaption>
         </figure>
         <figure class="frame">
           <span class="slot mono">IMG_4272.jpeg</span>
           <img src="images/IMG_4272.jpeg" alt="Filament-wound airframe section on the scale during mass budgeting" onerror="this.remove()">
+          <figcaption class="cap"></figcaption>
         </figure>
         <figure class="frame">
           <span class="slot mono">IMG_4273.jpeg</span>
           <img src="images/IMG_4273.jpeg" alt="Wound fiberglass coupler section held for inspection" onerror="this.remove()">
+          <figcaption class="cap"></figcaption>
         </figure>
       </div>
     </article>
+
+    <article class="project wide rise" style="--cols:4">
+      <figure class="frame lead">
+        <span class="tick tl"></span><span class="tick br"></span>
+        <span class="slot mono">image_1_.jpeg</span>
+        <img src="images/image_1_.jpeg" alt="Hysteria leaving the rail under power" onerror="this.remove()">
+        <figcaption class="cap"></figcaption>
+      </figure>
+      <div class="project-copy">
+        <span class="mono">Flown — rebuild in progress</span>
+        <h3>Hysteria — Mach 3 attempt</h3>
+        <p>A sub-minimum-diameter vehicle built around a custom propellant formulation and aimed at Mach 3. The motor case is aluminum, the nosecone fiberglass, and recovery runs on dual redundant flight computers with independent tracking. The flight ended in a motor failure: thermite in the top grain caused a mechanical failure that let grain fragments clog the nozzle. Chamber pressure ran away past the case's 1,600 psi rating and is estimated to have peaked near 2,600 psi. The airframe and avionics design held up; the failure was in the propellant grain. The case was recovered and the failure walked back from the hardware — the nozzle came back clogged and the case split longitudinally rather than at a joint, consistent with a pressure spike rather than a structural defect. The vehicle is being rebuilt for another attempt.</p>
+        <dl class="specs">
+          <div><dt class="mono">Configuration</dt><dd>Sub-minimum diameter, Mach 3 target</dd></div>
+          <div><dt class="mono">Structure</dt><dd>Aluminum motor case, fiberglass nosecone</dd></div>
+          <div><dt class="mono">Avionics</dt><dd>Dual redundant computers and tracking</dd></div>
+          <div><dt class="mono">Failure mode</dt><dd>Nozzle clog, ~2,600 psi vs 1,600 psi rating</dd></div>
+        </dl>
+      </div>
+      <div class="thumbs">
+        <figure class="frame">
+          <span class="slot mono">image.jpeg</span>
+          <img src="images/image.jpeg" alt="Ignition and first motion off the pad" onerror="this.remove()">
+          <figcaption class="cap"></figcaption>
+        </figure>
+        <figure class="frame">
+          <span class="slot mono">image_2_.jpeg</span>
+          <img src="images/image_2_.jpeg" alt="Vehicle climbing away from the launch rail" onerror="this.remove()">
+          <figcaption class="cap"></figcaption>
+        </figure>
+        <figure class="frame">
+          <span class="slot mono">20260911_155643.jpeg</span>
+          <img src="images/20260911_155643.jpeg" alt="Aluminum airframe and fin can before final assembly" onerror="this.remove()">
+          <figcaption class="cap"></figcaption>
+        </figure>
+        <figure class="frame">
+          <span class="slot mono">IMG_4388.jpeg</span>
+          <img src="images/IMG_4388.jpeg" alt="Assembled vehicle with fiberglass nosecone fitted" onerror="this.remove()">
+          <figcaption class="cap"></figcaption>
+        </figure>
+        <figure class="frame">
+          <span class="slot mono">20260912_145949.jpeg</span>
+          <img src="images/20260912_145949.jpeg" alt="Recovered motor case split open along its length" onerror="this.remove()">
+          <figcaption class="cap"></figcaption>
+        </figure>
+        <figure class="frame">
+          <span class="slot mono">20260912_142846.jpeg</span>
+          <img src="images/20260912_142846.jpeg" alt="Close view of the rupture where the case wall failed" onerror="this.remove()">
+          <figcaption class="cap"></figcaption>
+        </figure>
+        <figure class="frame">
+          <span class="slot mono">20260912_142550.jpeg</span>
+          <img src="images/20260912_142550.jpeg" alt="Aft end of the case showing longitudinal tearing and heat marking" onerror="this.remove()">
+          <figcaption class="cap"></figcaption>
+        </figure>
+        <figure class="frame">
+          <span class="slot mono">20260912_142651.jpeg</span>
+          <img src="images/20260912_142651.jpeg" alt="Recovered nozzle with the throat clogged by grain fragments" onerror="this.remove()">
+          <figcaption class="cap"></figcaption>
+        </figure>
+      </div>
+    </article>
+
     <article class="project rise">
       <div class="gallery">
         <figure class="frame lead media">
@@ -516,10 +635,12 @@ figure.portrait .tick.br{bottom:9px;right:9px;border-left:0;border-top:0}
             <source src="propellant-mix.mp4" type="video/mp4">
             <a href="propellant-mix.mp4">Download the propellant clip</a>
           </video>
+          <figcaption class="cap"></figcaption>
         </figure>
         <figure class="frame">
           <span class="slot mono">IMG_4096.jpeg</span>
           <img src="images/IMG_4096.jpeg" alt="Motor casing marked out alongside a GPS tracker board" onerror="this.remove()">
+          <figcaption class="cap"></figcaption>
         </figure>
       </div>
       <div class="project-copy">
@@ -540,14 +661,17 @@ figure.portrait .tick.br{bottom:9px;right:9px;border-left:0;border-top:0}
           <span class="tick tl"></span><span class="tick br"></span>
           <span class="slot mono">images/teststand-1.jpg</span>
           <img src="images/teststand-1.jpg" alt="Solid rocket motor test stand" onerror="this.remove()">
+          <figcaption class="cap"></figcaption>
         </figure>
         <figure class="frame">
           <span class="slot mono">teststand-2.jpg</span>
           <img src="images/teststand-2.jpg" alt="Detail view" onerror="this.remove()">
+          <figcaption class="cap"></figcaption>
         </figure>
         <figure class="frame">
           <span class="slot mono">teststand-3.jpg</span>
           <img src="images/teststand-3.jpg" alt="Detail view" onerror="this.remove()">
+          <figcaption class="cap"></figcaption>
         </figure>
       </div>
       <div class="project-copy">
@@ -569,6 +693,7 @@ figure.portrait .tick.br{bottom:9px;right:9px;border-left:0;border-top:0}
             <source src="engine-firing.mp4" type="video/mp4">
             <a href="engine-firing.mp4">Download the engine clip</a>
           </video>
+          <figcaption class="cap"></figcaption>
         </figure>
       <div class="project-copy">
         <span class="mono">Jul 2026</span>
@@ -585,18 +710,22 @@ figure.portrait .tick.br{bottom:9px;right:9px;border-left:0;border-top:0}
   <figure class="frame">
           <span class="slot mono">IMG_4250.jpeg</span>
           <img src="images/IMG_4250.jpeg" alt="Machined chamber and nozzle assembly with injector flange" onerror="this.remove()">
+          <figcaption class="cap"></figcaption>
         </figure>
   <figure class="frame">
           <span class="slot mono">1786508873511_image.png</span>
           <img src="images/1786508873511_image.png" alt="SolidWorks model of the chamber, throat, and conical nozzle" onerror="this.remove()">
+          <figcaption class="cap"></figcaption>
         </figure>
   <figure class="frame">
           <span class="slot mono">IMG_4233.jpeg</span>
           <img src="images/IMG_4233.jpeg" alt="Chamber standing on the injector flange showing the nozzle contraction" onerror="this.remove()">
+          <figcaption class="cap"></figcaption>
         </figure>
   <figure class="frame">
           <span class="slot mono">IMG_4234.jpeg</span>
           <img src="images/IMG_4234.jpeg" alt="Axial view down the chamber bore through to the throat" onerror="this.remove()">
+          <figcaption class="cap"></figcaption>
         </figure>
       </div>
     </article>
@@ -605,6 +734,7 @@ figure.portrait .tick.br{bottom:9px;right:9px;border-left:0;border-top:0}
           <span class="tick tl"></span><span class="tick br"></span>
           <span class="slot mono">IMG_4185.jpeg</span>
           <img src="images/IMG_4185.jpeg" alt="Completed carbon fiber rocket standing in the lab" onerror="this.remove()">
+          <figcaption class="cap"></figcaption>
         </figure>
       <div class="project-copy">
         <span class="mono">Apr to May 2026</span>
@@ -621,30 +751,37 @@ figure.portrait .tick.br{bottom:9px;right:9px;border-left:0;border-top:0}
   <figure class="frame">
           <span class="slot mono">IMG_4192.jpeg</span>
           <img src="images/IMG_4192.jpeg" alt="Rocket on the launch rail before flight" onerror="this.remove()">
+          <figcaption class="cap"></figcaption>
         </figure>
   <figure class="frame">
           <span class="slot mono">IMG_4191.jpeg</span>
           <img src="images/IMG_4191.jpeg" alt="Full vehicle laid out after recovery" onerror="this.remove()">
+          <figcaption class="cap"></figcaption>
         </figure>
   <figure class="frame">
           <span class="slot mono">IMG_4172.jpeg</span>
           <img src="images/IMG_4172.jpeg" alt="Fin can showing filleted carbon fin joints" onerror="this.remove()">
+          <figcaption class="cap"></figcaption>
         </figure>
   <figure class="frame">
           <span class="slot mono">IMG_4213.jpeg</span>
           <img src="images/IMG_4213.jpeg" alt="Close view of a fin root fillet and airframe weave" onerror="this.remove()">
+          <figcaption class="cap"></figcaption>
         </figure>
   <figure class="frame">
           <span class="slot mono">IMG_4171.jpeg</span>
           <img src="images/IMG_4171.jpeg" alt="Airframe and fin can before finishing" onerror="this.remove()">
+          <figcaption class="cap"></figcaption>
         </figure>
   <figure class="frame">
           <span class="slot mono">IMG_4170.jpeg</span>
           <img src="images/IMG_4170.jpeg" alt="Carbon fiber airframe tube surface finish" onerror="this.remove()">
+          <figcaption class="cap"></figcaption>
         </figure>
         <figure class="frame">
           <span class="slot mono">4288838A-DE2F-42F8-99FF-B1C0E9BC55D4__1_.jpeg</span>
           <img src="images/4288838A-DE2F-42F8-99FF-B1C0E9BC55D4__1_.jpeg" alt="Finished carbon fiber fin showing the twill weave and tapered edge" onerror="this.remove()">
+          <figcaption class="cap"></figcaption>
         </figure>
       </div>
     </article>
@@ -653,6 +790,7 @@ figure.portrait .tick.br{bottom:9px;right:9px;border-left:0;border-top:0}
           <span class="tick tl"></span><span class="tick br"></span>
           <span class="slot mono">IMG_3266.jpeg</span>
           <img src="images/IMG_3266.jpeg" alt="Completed LoRa tracker with 915 MHz antenna and battery lead" onerror="this.remove()">
+          <figcaption class="cap"></figcaption>
         </figure>
       <div class="project-copy">
         <span class="mono">Nov 2024 to Aug 2025</span>
@@ -669,28 +807,34 @@ figure.portrait .tick.br{bottom:9px;right:9px;border-left:0;border-top:0}
   <figure class="frame">
           <span class="slot mono">IMG_3220.jpeg</span>
           <img src="images/IMG_3220.jpeg" alt="Assembled board held in a vise during bring-up" onerror="this.remove()">
+          <figcaption class="cap"></figcaption>
         </figure>
   <figure class="frame">
           <span class="slot mono">IMG_3204.jpeg</span>
           <img src="images/IMG_3204.jpeg" alt="Bare fabricated PCB before assembly" onerror="this.remove()">
+          <figcaption class="cap"></figcaption>
         </figure>
   <figure class="frame shot">
           <span class="slot mono">IMG_3231.png</span>
           <img src="images/IMG_3231.png" alt="Live telemetry web interface showing raw NMEA output" onerror="this.remove()">
+          <figcaption class="cap"></figcaption>
         </figure>
   <figure class="frame shot">
           <span class="slot mono">IMG_3236.png</span>
           <img src="images/IMG_3236.png" alt="ESP32-S3 schematic with UART, JTAG, and boot option headers" onerror="this.remove()">
+          <figcaption class="cap"></figcaption>
         </figure>
       </div>
           <div class="screens">
         <figure class="frame">
           <span class="slot mono">IMG_3340.jpeg</span>
           <img src="images/IMG_3340.jpeg" alt="iOS app scanning and connecting to the tracker over BLE" onerror="this.remove()">
+          <figcaption class="cap"></figcaption>
         </figure>
         <figure class="frame">
           <span class="slot mono">IMG_3271.jpeg</span>
           <img src="images/IMG_3271.jpeg" alt="Live tracker view showing GPS fix, satellite count, and altitude" onerror="this.remove()">
+          <figcaption class="cap"></figcaption>
         </figure>
       </div>
     </article>
@@ -700,14 +844,17 @@ figure.portrait .tick.br{bottom:9px;right:9px;border-left:0;border-top:0}
           <span class="tick tl"></span><span class="tick br"></span>
           <span class="slot mono">images/irec-1.jpg</span>
           <img src="images/irec-1.jpg" alt="IREC aerostructures" onerror="this.remove()">
+          <figcaption class="cap"></figcaption>
         </figure>
         <figure class="frame">
           <span class="slot mono">irec-2.jpg</span>
           <img src="images/irec-2.jpg" alt="Detail view" onerror="this.remove()">
+          <figcaption class="cap"></figcaption>
         </figure>
         <figure class="frame">
           <span class="slot mono">irec-3.jpg</span>
           <img src="images/irec-3.jpg" alt="Detail view" onerror="this.remove()">
+          <figcaption class="cap"></figcaption>
         </figure>
       </div>
       <div class="project-copy">
@@ -730,14 +877,17 @@ figure.portrait .tick.br{bottom:9px;right:9px;border-left:0;border-top:0}
             <source src="images/flightcomputer-demo.mp4" type="video/mp4">
             <a href="images/flightcomputer-demo.mp4">Download the flight computer clip</a>
           </video>
+          <figcaption class="cap"></figcaption>
         </figure>
         <figure class="frame">
           <span class="slot mono">flightcomputer-2.jpg</span>
           <img src="images/flightcomputer-2.jpg" alt="Detail view" onerror="this.remove()">
+          <figcaption class="cap"></figcaption>
         </figure>
         <figure class="frame">
           <span class="slot mono">flightcomputer-3.jpg</span>
           <img src="images/flightcomputer-3.jpg" alt="Detail view" onerror="this.remove()">
+          <figcaption class="cap"></figcaption>
         </figure>
       </div>
       <div class="project-copy">
