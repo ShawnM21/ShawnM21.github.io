@@ -436,8 +436,8 @@ figure.portrait .tick.br{bottom:9px;right:9px;border-left:0;border-top:0}
         <div class="docs">
           <span class="mono">Reports</span>
           <ul>
-            <li><a href="12_Sample_Data__3_.pdf" target="_blank" rel="noopener">Mass Loss Study — four foam compositions on the solar simulator (PDF)</a></li>
-            <li><a href="reliability_test__2_.pdf" target="_blank" rel="noopener">Reliability Study — 20% cement foam reusability over four cycles (PDF)</a></li>
+            <li><a href="12_Sample_Data__3_.pdf" target="_blank" rel="noopener" data-umami-event="PDF: Mass loss study">Mass Loss Study — four foam compositions on the solar simulator (PDF)</a></li>
+            <li><a href="reliability_test__2_.pdf" target="_blank" rel="noopener" data-umami-event="PDF: Reliability study">Reliability Study — 20% cement foam reusability over four cycles (PDF)</a></li>
           </ul>
         </div>
       </div>
@@ -941,15 +941,15 @@ figure.portrait .tick.br{bottom:9px;right:9px;border-left:0;border-top:0}
       <div class="links">
         <div>
           <span class="mono label">Email</span>
-          <a href="mailto:omara004@fiu.edu">omara004@fiu.edu</a>
+          <a href="mailto:omara004@fiu.edu" data-umami-event="Contact: Email">omara004@fiu.edu</a>
         </div>
         <div>
           <span class="mono label">Phone</span>
-          <a href="tel:+19549099800">+1 954-909-9800</a>
+          <a href="tel:+19549099800" data-umami-event="Contact: Phone">+1 954-909-9800</a>
         </div>
         <div>
           <span class="mono label">Profile</span>
-          <a href="https://www.linkedin.com/in/ordelmaragh9/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://www.linkedin.com/in/ordelmaragh9/" target="_blank" rel="noopener" data-umami-event="Contact: LinkedIn">LinkedIn</a>
         </div>
       </div>
     </footer>
@@ -961,6 +961,41 @@ const io = new IntersectionObserver((entries) => {
   entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
 }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
 document.querySelectorAll('.rise').forEach(el => io.observe(el));
+</script>
+
+<!-- Umami engagement events: video plays and sections reached -->
+<script>
+(function () {
+  function track(name, data, tries) {
+    tries = tries || 0;
+    if (window.umami && typeof window.umami.track === "function") {
+      window.umami.track(name, data);
+    } else if (tries < 20) {
+      setTimeout(function () { track(name, data, tries + 1); }, 500);
+    }
+  }
+
+  // Video plays (counted once per video per visit)
+  document.querySelectorAll("video").forEach(function (v) {
+    var src = v.querySelector("source");
+    var name = (src ? src.getAttribute("src") : v.currentSrc || "video").split("/").pop();
+    v.addEventListener("play", function () { track("Video play", { video: name }); }, { once: true });
+  });
+
+  // Sections reached (counted once per section per visit)
+  var seen = {};
+  var obs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      var label = e.target.textContent.trim();
+      obs.unobserve(e.target);
+      if (seen[label]) return;
+      seen[label] = true;
+      track("Section viewed", { section: label });
+    });
+  }, { threshold: 0.5 });
+  document.querySelectorAll("h2").forEach(function (h) { obs.observe(h); });
+})();
 </script>
 
 <!-- Cloudflare Web Analytics (opt-out also covers Umami) — skipped for the owner and for local previews -->
