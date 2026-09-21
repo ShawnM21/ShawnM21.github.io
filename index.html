@@ -349,6 +349,8 @@ figure.portrait .tick.br{bottom:9px;right:9px;border-left:0;border-top:0}
   .masthead h1,.masthead .tagline,.masthead .mono{animation:none}
 }
 </style>
+<!-- Umami Analytics -->
+<script defer src="https://cloud.umami.is/script.js" data-website-id="2c894f9d-8cae-474a-8cfa-3256e76fb949" data-domains="shawnm21.github.io"></script>
 </head>
 <body>
 
@@ -961,7 +963,7 @@ const io = new IntersectionObserver((entries) => {
 document.querySelectorAll('.rise').forEach(el => io.observe(el));
 </script>
 
-<!-- Cloudflare Web Analytics — skipped for the owner and for local previews -->
+<!-- Cloudflare Web Analytics (opt-out also covers Umami) — skipped for the owner and for local previews -->
 <script>
 (function () {
   var TOKEN = "1c662b9404bc45aa94d836ad699d564b";
@@ -970,8 +972,8 @@ document.querySelectorAll('.rise').forEach(el => io.observe(el));
     // Visit ?noanalytics=1 once on a device to stop counting yourself there.
     // Visit ?noanalytics=0 to start counting again.
     var q = new URLSearchParams(location.search).get("noanalytics");
-    if (q === "1") localStorage.setItem("cf-optout", "1");
-    if (q === "0") localStorage.removeItem("cf-optout");
+    if (q === "1") { localStorage.setItem("cf-optout", "1"); localStorage.setItem("umami.disabled", "1"); }
+    if (q === "0") { localStorage.removeItem("cf-optout"); localStorage.removeItem("umami.disabled"); }
     flag = localStorage.getItem("cf-optout");
   } catch (e) { /* storage blocked — just load normally */ }
 
