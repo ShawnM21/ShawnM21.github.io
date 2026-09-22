@@ -963,7 +963,7 @@ const io = new IntersectionObserver((entries) => {
 document.querySelectorAll('.rise').forEach(el => io.observe(el));
 </script>
 
-<!-- Umami engagement events: video plays and sections reached -->
+<!-- Umami engagement events: video plays, sections reached, time on page -->
 <script>
 (function () {
   function track(name, data, tries) {
@@ -995,6 +995,21 @@ document.querySelectorAll('.rise').forEach(el => io.observe(el));
     });
   }, { threshold: 0.5 });
   document.querySelectorAll("h2").forEach(function (h) { obs.observe(h); });
+
+  // Time on page checkpoints (counts only while the tab is visible)
+  var checkpoints = [15, 30, 60, 120, 300, 600];
+  var labels = { 15: "15s", 30: "30s", 60: "1 min", 120: "2 min", 300: "5 min", 600: "10 min" };
+  var activeSeconds = 0;
+  var next = 0;
+  var timer = setInterval(function () {
+    if (document.visibilityState !== "visible") return;
+    activeSeconds++;
+    if (activeSeconds >= checkpoints[next]) {
+      track("Time on page: " + labels[checkpoints[next]]);
+      next++;
+      if (next >= checkpoints.length) clearInterval(timer);
+    }
+  }, 1000);
 })();
 </script>
 
