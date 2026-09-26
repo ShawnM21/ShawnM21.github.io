@@ -523,6 +523,38 @@ figure.portrait .tick.br{bottom:9px;right:9px;border-left:0;border-top:0}
     <article class="project wide rise" style="--cols:3">
       <figure class="frame lead">
         <span class="tick tl"></span><span class="tick br"></span>
+        <span class="slot mono">fc2-board-3d.jpg</span>
+        <img src="images/fc2-board-3d.jpg" alt="3D render of the revised flight computer PCB with the ESP32-S3 module and sensor cluster" onerror="this.remove()">
+        <figcaption class="cap"></figcaption>
+      </figure>
+      <div class="project-copy">
+        <span class="mono">In progress</span>
+        <h3>Revised flight computer</h3>
+        <p>A second-generation board built purely for measurement, with no pyro channels and no deployment MOSFETs, so the whole design budget goes into clean data instead of recovery hardware. An ESP32-S3-WROOM-1U-N16 handles logging to 16 MB of onboard flash, with the 1U variant chosen for an external antenna connector rather than a PCB antenna. The sensor stack is picked for dynamic range: an LSM6DSV320X pairs a 16 g accelerometer with a 320 g high-g accelerometer on the same die alongside a 4000 dps gyro, so motor ignition and separation shock stay on scale instead of clipping the way a single 16 g part does. An MS5607-02BA03 supplies 24-bit barometric altitude at 20 cm resolution across 10 to 1200 mbar, and an MMC5983MA adds 18-bit three-axis magnetometry at 0.4 mG RMS noise for heading reference. Power comes from a 1S LiPo through a MIC5235 linear regulator. Parts are on order and bring-up starts when the boards arrive.</p>
+        <dl class="specs">
+          <div><dt class="mono">MCU</dt><dd>ESP32-S3-WROOM-1U-N16, 16 MB flash</dd></div>
+          <div><dt class="mono">Inertial</dt><dd>LSM6DSV320X, 16 g + 320 g, 4000 dps</dd></div>
+          <div><dt class="mono">Barometric</dt><dd>MS5607-02BA03, 24-bit, 20 cm resolution</dd></div>
+          <div><dt class="mono">Magnetic</dt><dd>MMC5983MA, 18-bit, 0.4 mG RMS noise</dd></div>
+        </dl>
+      </div>
+      <div class="thumbs">
+        <figure class="frame">
+          <span class="slot mono">fc2-board-layout.jpg</span>
+          <img src="images/fc2-board-layout.jpg" alt="PCB layout showing copper pours, routing, and component placement" onerror="this.remove()">
+          <figcaption class="cap"></figcaption>
+        </figure>
+        <figure class="frame">
+          <span class="slot mono">fc2-schematic.png</span>
+          <img src="images/fc2-schematic.png" alt="Schematic of the revised flight computer showing the MCU, sensors, regulator, and status LEDs" onerror="this.remove()">
+          <figcaption class="cap"></figcaption>
+        </figure>
+      </div>
+    </article>
+
+    <article class="project wide rise" style="--cols:3">
+      <figure class="frame lead">
+        <span class="tick tl"></span><span class="tick br"></span>
         <span class="slot mono">IMG_4275.jpeg</span>
         <img src="images/IMG_4275.jpeg" alt="Fin set, centering rings, airframe, and nosecone after rinse" onerror="this.remove()">
         <figcaption class="cap"></figcaption>
