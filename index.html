@@ -349,8 +349,6 @@ figure.portrait .tick.br{bottom:9px;right:9px;border-left:0;border-top:0}
   .masthead h1,.masthead .tagline,.masthead .mono{animation:none}
 }
 </style>
-<!-- Umami Analytics -->
-<script defer src="https://cloud.umami.is/script.js" data-website-id="2c894f9d-8cae-474a-8cfa-3256e76fb949" data-domains="shawnm21.github.io"></script>
 </head>
 <body>
 
@@ -436,8 +434,8 @@ figure.portrait .tick.br{bottom:9px;right:9px;border-left:0;border-top:0}
         <div class="docs">
           <span class="mono">Reports</span>
           <ul>
-            <li><a href="12_Sample_Data__3_.pdf" target="_blank" rel="noopener" data-umami-event="PDF: Mass loss study">Mass Loss Study — four foam compositions on the solar simulator (PDF)</a></li>
-            <li><a href="reliability_test__2_.pdf" target="_blank" rel="noopener" data-umami-event="PDF: Reliability study">Reliability Study — 20% cement foam reusability over four cycles (PDF)</a></li>
+            <li><a href="12_Sample_Data__3_.pdf" target="_blank" rel="noopener">Mass Loss Study — four foam compositions on the solar simulator (PDF)</a></li>
+            <li><a href="reliability_test__2_.pdf" target="_blank" rel="noopener">Reliability Study — 20% cement foam reusability over four cycles (PDF)</a></li>
           </ul>
         </div>
       </div>
@@ -520,38 +518,6 @@ figure.portrait .tick.br{bottom:9px;right:9px;border-left:0;border-top:0}
     </article>
 
     <div class="section-head"><h2>Projects</h2></div>
-    <article class="project wide rise" style="--cols:3">
-      <figure class="frame lead">
-        <span class="tick tl"></span><span class="tick br"></span>
-        <span class="slot mono">fc2-board-layout.jpg</span>
-        <img src="images/fc2-board-layout.jpg" alt="PCB layout of the revised flight computer showing copper pours, routing, and component placement" onerror="this.remove()">
-        <figcaption class="cap"></figcaption>
-      </figure>
-      <div class="project-copy">
-        <span class="mono">In progress</span>
-        <h3>Revised flight computer</h3>
-        <p>A second-generation board built purely for measurement, with no pyro channels and no deployment MOSFETs, so the whole design budget goes into clean data instead of recovery hardware. An ESP32-S3-WROOM-1U-N16 handles logging to 16 MB of onboard flash. The sensor stack is picked for dynamic range: an LSM6DSV320X pairs a 16 g accelerometer with a 320 g high-g accelerometer on the same die alongside a 4000 dps gyro, so motor ignition and separation shock stay on scale instead of clipping the way a single 16 g part does. An MS5607-02BA03 supplies 24-bit barometric altitude at 20 cm resolution across 10 to 1200 mbar, and an MMC5983MA adds 18-bit three-axis magnetometry at 0.4 mG RMS noise for heading reference. Power comes from a 1S LiPo through a MIC5235 linear regulator. Parts are on order and bring up starts when the boards arrive.</p>
-        <dl class="specs">
-          <div><dt class="mono">MCU</dt><dd>ESP32-S3-WROOM-1U-N16, 16 MB flash</dd></div>
-          <div><dt class="mono">Inertial</dt><dd>LSM6DSV320X, 16 g + 320 g, 4000 dps</dd></div>
-          <div><dt class="mono">Barometric</dt><dd>MS5607-02BA03, 24-bit, 20 cm resolution</dd></div>
-          <div><dt class="mono">Magnetic</dt><dd>MMC5983MA, 18-bit, 0.4 mG RMS noise</dd></div>
-        </dl>
-      </div>
-      <div class="thumbs">
-        <figure class="frame">
-          <span class="slot mono">fc2-board-3d.jpg</span>
-          <img src="images/fc2-board-3d.jpg" alt="3D render of the assembled board with the ESP32-S3 module and sensor cluster" onerror="this.remove()">
-          <figcaption class="cap"></figcaption>
-        </figure>
-        <figure class="frame">
-          <span class="slot mono">fc2-schematic.png</span>
-          <img src="images/fc2-schematic.png" alt="Schematic of the revised flight computer showing the MCU, sensors, regulator, and status LEDs" onerror="this.remove()">
-          <figcaption class="cap"></figcaption>
-        </figure>
-      </div>
-    </article>
-
     <article class="project wide rise" style="--cols:3">
       <figure class="frame lead">
         <span class="tick tl"></span><span class="tick br"></span>
@@ -668,7 +634,7 @@ figure.portrait .tick.br{bottom:9px;right:9px;border-left:0;border-top:0}
       </div>
     </article>
 
-    <article class="project wide rise" style="--cols:3">
+    <article class="project wide rise" style="--cols:4">
       <figure class="frame lead media">
         <span class="tick tl"></span><span class="tick br"></span>
         <video controls preload="metadata" playsinline>
@@ -680,7 +646,7 @@ figure.portrait .tick.br{bottom:9px;right:9px;border-left:0;border-top:0}
       <div class="project-copy">
         <span class="mono">Ongoing</span>
         <h3>Solid propellant mixing and testing</h3>
-        <p>I've mixed and combustion-tested five propellant formulations, comparing burn behavior, flame structure, exhaust characteristics, and casting quality across them. Tuning the chemistry for combustion temperature, plume behavior, and energy release improved tested performance by 18% and reached 194 s Isp. I also traced a bubble and void entrapment problem to casting viscosity, measured a 14% difference, and reformulated for pourability and grain uniformity.</p>
+        <p>I've mixed and combustion-tested five propellant formulations, comparing burn behavior, flame structure, exhaust characteristics, and casting quality across them. Tuning the chemistry for combustion temperature, plume behavior, and energy release improved tested performance by 18% and reached 194 s Isp. I also traced a bubble and void entrapment problem to casting viscosity, measured a 14% difference, and reformulated for pourability and grain uniformity. Grains are cast in liner to both BATES and finocyl port geometries so I can trade burn area progression against chamber pressure across the same formulation.</p>
         <dl class="specs">
           <div><dt class="mono">Formulations</dt><dd>5 mixed and burned</dd></div>
           <div><dt class="mono">Performance</dt><dd>194 s Isp, up 18%</dd></div>
@@ -689,29 +655,21 @@ figure.portrait .tick.br{bottom:9px;right:9px;border-left:0;border-top:0}
         </dl>
       </div>
       <div class="thumbs">
-        <figure class="frame">
-          <span class="slot mono">IMG_4369.jpeg</span>
-          <img src="images/IMG_4369.jpeg" alt="Four cast cored grains in their liners, lined up end-on" onerror="this.remove()">
+        <figure class="frame media">
+          <video controls preload="metadata" playsinline poster="images/IMG_4509.jpeg">
+            <source src="propellant-grains.mp4" type="video/mp4">
+            <a href="propellant-grains.mp4">Download the grain clip</a>
+          </video>
           <figcaption class="cap"></figcaption>
         </figure>
         <figure class="frame">
-          <span class="slot mono">IMG_4361.jpeg</span>
-          <img src="images/IMG_4361.jpeg" alt="End face of a single cured grain showing the center core" onerror="this.remove()">
+          <span class="slot mono">IMG_4509.jpeg</span>
+          <img src="images/IMG_4509.jpeg" alt="Cast BATES grains alongside a finocyl core, showing cured port geometry" onerror="this.remove()">
           <figcaption class="cap"></figcaption>
         </figure>
         <figure class="frame">
-          <span class="slot mono">IMG_4360.jpeg</span>
-          <img src="images/IMG_4360.jpeg" alt="Grain end face with porosity concentrated beside the core" onerror="this.remove()">
-          <figcaption class="cap"></figcaption>
-        </figure>
-        <figure class="frame">
-          <span class="slot mono">IMG_4359.jpeg</span>
-          <img src="images/IMG_4359.jpeg" alt="Top-down view of a grain end with a void cluster next to the bore" onerror="this.remove()">
-          <figcaption class="cap"></figcaption>
-        </figure>
-        <figure class="frame">
-          <span class="slot mono">IMG_4362.jpeg</span>
-          <img src="images/IMG_4362.jpeg" alt="View down the length of the core through a cast grain" onerror="this.remove()">
+          <span class="slot mono">IMG_4510.jpeg</span>
+          <img src="images/IMG_4510.jpeg" alt="Grain set standing on end with phenolic liner and cast port surfaces visible" onerror="this.remove()">
           <figcaption class="cap"></figcaption>
         </figure>
         <figure class="frame">
@@ -719,6 +677,37 @@ figure.portrait .tick.br{bottom:9px;right:9px;border-left:0;border-top:0}
           <img src="images/IMG_4096.jpeg" alt="Motor casing marked out alongside a GPS tracker board" onerror="this.remove()">
           <figcaption class="cap"></figcaption>
         </figure>
+      </div>
+    </article>
+    <article class="project rise">
+      <div class="gallery">
+        <figure class="frame lead">
+          <span class="tick tl"></span><span class="tick br"></span>
+          <span class="slot mono">images/teststand-1.jpg</span>
+          <img src="images/teststand-1.jpg" alt="Solid rocket motor test stand" onerror="this.remove()">
+          <figcaption class="cap"></figcaption>
+        </figure>
+        <figure class="frame">
+          <span class="slot mono">teststand-2.jpg</span>
+          <img src="images/teststand-2.jpg" alt="Detail view" onerror="this.remove()">
+          <figcaption class="cap"></figcaption>
+        </figure>
+        <figure class="frame">
+          <span class="slot mono">teststand-3.jpg</span>
+          <img src="images/teststand-3.jpg" alt="Detail view" onerror="this.remove()">
+          <figcaption class="cap"></figcaption>
+        </figure>
+      </div>
+      <div class="project-copy">
+        <span class="mono">Ongoing</span>
+        <h3>Solid rocket motor test stand</h3>
+        <p>A vertical static-fire stand built from 6061-T6 aluminum T-slot extrusion, roughly 21 in tall and 6 in wide. The upward-facing nozzle load path reacts 1,200 N of thrust as downward axial compression through the frame, about 270 lbf before motor weight. A chamber pressure sensor logs the pressure trace so I can compare response between propellant formulations rather than judging burns by eye.</p>
+        <dl class="specs">
+          <div><dt class="mono">Material</dt><dd>6061-T6 aluminum extrusion</dd></div>
+          <div><dt class="mono">Design load</dt><dd>1,200 N (~270 lbf) axial</dd></div>
+          <div><dt class="mono">Frame</dt><dd>~21 in tall, 6 in wide</dd></div>
+          <div><dt class="mono">Instrumentation</dt><dd>Chamber pressure logging</dd></div>
+        </dl>
       </div>
     </article>
     <article class="project wide rise" style="--cols:4">
@@ -875,6 +864,37 @@ figure.portrait .tick.br{bottom:9px;right:9px;border-left:0;border-top:0}
     </article>
     <article class="project rise">
       <div class="gallery">
+        <figure class="frame lead">
+          <span class="tick tl"></span><span class="tick br"></span>
+          <span class="slot mono">images/irec-1.jpg</span>
+          <img src="images/irec-1.jpg" alt="IREC aerostructures" onerror="this.remove()">
+          <figcaption class="cap"></figcaption>
+        </figure>
+        <figure class="frame">
+          <span class="slot mono">irec-2.jpg</span>
+          <img src="images/irec-2.jpg" alt="Detail view" onerror="this.remove()">
+          <figcaption class="cap"></figcaption>
+        </figure>
+        <figure class="frame">
+          <span class="slot mono">irec-3.jpg</span>
+          <img src="images/irec-3.jpg" alt="Detail view" onerror="this.remove()">
+          <figcaption class="cap"></figcaption>
+        </figure>
+      </div>
+      <div class="project-copy">
+        <span class="mono">Nov 2024 to Jul 2025</span>
+        <h3>IREC rocket aerostructures</h3>
+        <p>Manufacturing engineering for a competition airframe: I built production-ready CAD models and drawings in SolidWorks, turning geometry that couldn't be made into assemblies that could, with interfaces defined clearly enough to hand off. I manufactured aluminum bulkheads and fiberglass airframe components and ran fit checks against avionics, recovery, and mechanical interfaces. I also led component design and assembly workshops, writing build intent into step-by-step procedures to cut rework.</p>
+        <dl class="specs">
+          <div><dt class="mono">Role</dt><dd>Manufacturing engineering</dd></div>
+          <div><dt class="mono">CAD</dt><dd>SolidWorks models and drawings</dd></div>
+          <div><dt class="mono">Fabrication</dt><dd>Aluminum bulkheads, fiberglass</dd></div>
+          <div><dt class="mono">Handoff</dt><dd>Step-by-step build procedures</dd></div>
+        </dl>
+      </div>
+    </article>
+    <article class="project rise">
+      <div class="gallery">
         <figure class="frame lead media">
           <span class="tick tl"></span><span class="tick br"></span>
           <video controls preload="metadata" playsinline>
@@ -911,15 +931,15 @@ figure.portrait .tick.br{bottom:9px;right:9px;border-left:0;border-top:0}
       <div class="links">
         <div>
           <span class="mono label">Email</span>
-          <a href="mailto:omara004@fiu.edu" data-umami-event="Contact: Email">omara004@fiu.edu</a>
+          <a href="mailto:omara004@fiu.edu">omara004@fiu.edu</a>
         </div>
         <div>
           <span class="mono label">Phone</span>
-          <a href="tel:+19549099800" data-umami-event="Contact: Phone">+1 954-909-9800</a>
+          <a href="tel:+19549099800">+1 954-909-9800</a>
         </div>
         <div>
           <span class="mono label">Profile</span>
-          <a href="https://www.linkedin.com/in/ordelmaragh9/" target="_blank" rel="noopener" data-umami-event="Contact: LinkedIn">LinkedIn</a>
+          <a href="https://www.linkedin.com/in/ordelmaragh9/" target="_blank" rel="noopener">LinkedIn</a>
         </div>
       </div>
     </footer>
@@ -933,57 +953,7 @@ const io = new IntersectionObserver((entries) => {
 document.querySelectorAll('.rise').forEach(el => io.observe(el));
 </script>
 
-<!-- Umami engagement events: video plays, sections reached, time on page -->
-<script>
-(function () {
-  function track(name, data, tries) {
-    tries = tries || 0;
-    if (window.umami && typeof window.umami.track === "function") {
-      window.umami.track(name, data);
-    } else if (tries < 20) {
-      setTimeout(function () { track(name, data, tries + 1); }, 500);
-    }
-  }
-
-  // Video plays (counted once per video per visit)
-  document.querySelectorAll("video").forEach(function (v) {
-    var src = v.querySelector("source");
-    var name = (src ? src.getAttribute("src") : v.currentSrc || "video").split("/").pop();
-    v.addEventListener("play", function () { track("Video play", { video: name }); }, { once: true });
-  });
-
-  // Sections reached (counted once per section per visit)
-  var seen = {};
-  var obs = new IntersectionObserver(function (entries) {
-    entries.forEach(function (e) {
-      if (!e.isIntersecting) return;
-      var label = e.target.textContent.trim();
-      obs.unobserve(e.target);
-      if (seen[label]) return;
-      seen[label] = true;
-      track("Section viewed", { section: label });
-    });
-  }, { threshold: 0.5 });
-  document.querySelectorAll("h2").forEach(function (h) { obs.observe(h); });
-
-  // Time on page checkpoints (counts only while the tab is visible)
-  var checkpoints = [15, 30, 60, 120, 300, 600];
-  var labels = { 15: "15s", 30: "30s", 60: "1 min", 120: "2 min", 300: "5 min", 600: "10 min" };
-  var activeSeconds = 0;
-  var next = 0;
-  var timer = setInterval(function () {
-    if (document.visibilityState !== "visible") return;
-    activeSeconds++;
-    if (activeSeconds >= checkpoints[next]) {
-      track("Time on page: " + labels[checkpoints[next]]);
-      next++;
-      if (next >= checkpoints.length) clearInterval(timer);
-    }
-  }, 1000);
-})();
-</script>
-
-<!-- Cloudflare Web Analytics (opt-out also covers Umami) — skipped for the owner and for local previews -->
+<!-- Cloudflare Web Analytics — skipped for the owner and for local previews -->
 <script>
 (function () {
   var TOKEN = "1c662b9404bc45aa94d836ad699d564b";
@@ -992,8 +962,8 @@ document.querySelectorAll('.rise').forEach(el => io.observe(el));
     // Visit ?noanalytics=1 once on a device to stop counting yourself there.
     // Visit ?noanalytics=0 to start counting again.
     var q = new URLSearchParams(location.search).get("noanalytics");
-    if (q === "1") { localStorage.setItem("cf-optout", "1"); localStorage.setItem("umami.disabled", "1"); }
-    if (q === "0") { localStorage.removeItem("cf-optout"); localStorage.removeItem("umami.disabled"); }
+    if (q === "1") localStorage.setItem("cf-optout", "1");
+    if (q === "0") localStorage.removeItem("cf-optout");
     flag = localStorage.getItem("cf-optout");
   } catch (e) { /* storage blocked — just load normally */ }
 
