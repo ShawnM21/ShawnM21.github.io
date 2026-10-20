@@ -953,10 +953,11 @@ const io = new IntersectionObserver((entries) => {
 document.querySelectorAll('.rise').forEach(el => io.observe(el));
 </script>
 
-<!-- Cloudflare Web Analytics — skipped for the owner and for local previews -->
+<!-- Cloudflare Web Analytics + Umami — both skipped for the owner and for local previews -->
 <script>
 (function () {
   var TOKEN = "1c662b9404bc45aa94d836ad699d564b";
+  var UMAMI_ID = "2c894f9d-8cae-474a-8cfa-3256e76fb949";
   var flag = null;
   try {
     // Visit ?noanalytics=1 once on a device to stop counting yourself there.
@@ -978,8 +979,14 @@ document.querySelectorAll('.rise').forEach(el => io.observe(el));
   b.src = "https://static.cloudflareinsights.com/beacon.min.js";
   b.setAttribute("data-cf-beacon", '{"token": "' + TOKEN + '"}');
   document.body.appendChild(b);
+
+  var u = document.createElement("script");
+  u.defer = true;
+  u.src = "https://cloud.umami.is/script.js";
+  u.setAttribute("data-website-id", UMAMI_ID);
+  document.body.appendChild(u);
 })();
 </script>
-<!-- End Cloudflare Web Analytics -->
+<!-- End Cloudflare Web Analytics + Umami -->
 </body>
 </html>
