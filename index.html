@@ -953,10 +953,11 @@ const io = new IntersectionObserver((entries) => {
 document.querySelectorAll('.rise').forEach(el => io.observe(el));
 </script>
 
-<!-- Cloudflare Web Analytics — skipped for the owner and for local previews -->
+<!-- Cloudflare Web Analytics + Umami: both skipped for the owner and for local previews -->
 <script>
 (function () {
   var TOKEN = "1c662b9404bc45aa94d836ad699d564b";
+  var UMAMI_ID = "2c894f9d-8cae-474a-8cfa-3256e76fb949";
   var flag = null;
   try {
     // Visit ?noanalytics=1 once on a device to stop counting yourself there.
@@ -978,8 +979,178 @@ document.querySelectorAll('.rise').forEach(el => io.observe(el));
   b.src = "https://static.cloudflareinsights.com/beacon.min.js";
   b.setAttribute("data-cf-beacon", '{"token": "' + TOKEN + '"}');
   document.body.appendChild(b);
+
+  var u = document.createElement("script");
+  u.defer = true;
+  u.src = "https://cloud.umami.is/script.js";
+  u.setAttribute("data-website-id", UMAMI_ID);
+  document.body.appendChild(u);
+
+  window.__trackEngagement = true;
 })();
 </script>
-<!-- End Cloudflare Web Analytics -->
+<!-- End Cloudflare Web Analytics + Umami -->
+
+<!-- Umami engagement tracking: time on page, scroll depth, clicks, video plays -->
+<script>
+(function () {
+  // Only runs when the loader above decided to load analytics
+  // (not for the owner opt-out and not for local previews).
+  if (!window.__trackEngagement) return;
+
+  var IDLE_MS = 60000;          // no input for 60 s = not counted as engaged
+  var MAX_STEP_MS = 2000;       // ignore clock jumps from sleep or throttling
+  var MILESTONES = [30, 60, 120, 300, 600];
+
+  var visibleMs = 0;            // tab was in the foreground
+  var engagedMs = 0;            // in the foreground AND recently active (or a video playing)
+  var lastTick = Date.now();
+  var lastActivity = Date.now();
+  var maxScrollPct = 0;
+  var lastSentEngaged = -1;
+  var hitMilestones = {};
+  var sectionMs = {};           // engaged time per project/section heading
+  var playing = 0;              // count of videos currently playing
+
+  function send(name, data) {
+    try {
+      if (window.umami && typeof window.umami.track === "function") {
+        window.umami.track(name, data);
+      }
+    } catch (e) { /* never break the page over analytics */ }
+  }
+
+  function bucket(sec) {
+    if (sec < 10) return "0-10s";
+    if (sec < 30) return "10-30s";
+    if (sec < 60) return "30-60s";
+    if (sec < 120) return "1-2m";
+    if (sec < 300) return "2-5m";
+    if (sec < 600) return "5-10m";
+    return "10m+";
+  }
+
+  // Which section is in the middle of the screen right now
+  var sections = Array.prototype.slice.call(
+    document.querySelectorAll("article.project, section, footer.contact")
+  );
+  function sectionName(el) {
+    var h = el.querySelector("h3, h2");
+    return h ? h.textContent.trim().slice(0, 60) : "";
+  }
+  function currentSection() {
+    var mid = window.innerHeight / 2, best = "";
+    for (var i = 0; i < sections.length; i++) {
+      var r = sections[i].getBoundingClientRect();
+      if (r.top <= mid && r.bottom >= mid) {
+        var n = sectionName(sections[i]);
+        if (n) best = n;     // innermost match wins (articles come after their section)
+      }
+    }
+    return best;
+  }
+
+  function updateScroll() {
+    var doc = document.documentElement;
+    var total = Math.max(doc.scrollHeight - window.innerHeight, 1);
+    var pct = Math.round(Math.min(100, (window.scrollY / total) * 100));
+    if (pct > maxScrollPct) maxScrollPct = pct;
+  }
+
+  function topSection() {
+    var best = "", bestMs = 0;
+    for (var k in sectionMs) {
+      if (sectionMs[k] > bestMs) { bestMs = sectionMs[k]; best = k; }
+    }
+    return best;
+  }
+
+  function tick() {
+    var now = Date.now();
+    var step = Math.min(now - lastTick, MAX_STEP_MS);
+    lastTick = now;
+    if (document.visibilityState !== "visible") return;
+
+    visibleMs += step;
+    var active = (now - lastActivity) < IDLE_MS || playing > 0;
+    if (active) {
+      engagedMs += step;
+      var sec = currentSection();
+      if (sec) sectionMs[sec] = (sectionMs[sec] || 0) + step;
+    }
+
+    var engagedSec = Math.floor(engagedMs / 1000);
+    for (var i = 0; i < MILESTONES.length; i++) {
+      var m = MILESTONES[i];
+      if (engagedSec >= m && !hitMilestones[m]) {
+        hitMilestones[m] = true;
+        send("engaged-" + (m < 60 ? m + "s" : (m / 60) + "m"), { scroll_pct: maxScrollPct });
+      }
+    }
+  }
+
+  // Sends the running total. Fires each time the visitor leaves the tab,
+  // so the LAST "time-on-page" event in a session is the full total.
+  function flush() {
+    tick();
+    var engagedSec = Math.round(engagedMs / 1000);
+    if (engagedSec < 1 || engagedSec === lastSentEngaged) return;
+    lastSentEngaged = engagedSec;
+    send("time-on-page", {
+      engaged_s: engagedSec,
+      visible_s: Math.round(visibleMs / 1000),
+      engaged_bucket: bucket(engagedSec),
+      scroll_pct: maxScrollPct,
+      top_section: topSection()
+    });
+  }
+
+  function markActive() { lastActivity = Date.now(); }
+  ["pointerdown", "pointermove", "keydown", "wheel", "touchstart", "scroll"].forEach(function (ev) {
+    window.addEventListener(ev, markActive, { passive: true });
+  });
+  window.addEventListener("scroll", updateScroll, { passive: true });
+
+  document.addEventListener("visibilitychange", function () {
+    if (document.visibilityState === "hidden") {
+      flush();
+    } else {
+      lastTick = Date.now();   // do not count the time spent away
+      markActive();
+    }
+  });
+  window.addEventListener("pagehide", flush);
+
+  // Video plays: a strong sign of a real person
+  Array.prototype.forEach.call(document.querySelectorAll("video"), function (v) {
+    var src = v.querySelector("source");
+    var name = ((src && src.getAttribute("src")) || v.getAttribute("src") || "video").split("/").pop();
+    var started = false;
+    v.addEventListener("play", function () {
+      playing++;
+      markActive();
+      if (!started) { started = true; send("video-play", { video: name }); }
+    });
+    var stop = function () { if (playing > 0) playing--; };
+    v.addEventListener("pause", stop);
+    v.addEventListener("ended", stop);
+  });
+
+  // Clicks on reports, email, phone and LinkedIn
+  document.addEventListener("click", function (e) {
+    var a = e.target.closest && e.target.closest("a[href]");
+    if (!a) return;
+    var href = a.getAttribute("href");
+    if (/\.pdf($|\?)/i.test(href)) send("report-open", { file: href.split("/").pop() });
+    else if (/^mailto:/i.test(href)) send("contact-email");
+    else if (/^tel:/i.test(href)) send("contact-phone");
+    else if (/linkedin\.com/i.test(href)) send("linkedin-click");
+    else if (/\.mp4($|\?)/i.test(href)) send("video-download", { file: href.split("/").pop() });
+  });
+
+  updateScroll();
+  setInterval(tick, 1000);
+})();
+</script>
 </body>
 </html>
