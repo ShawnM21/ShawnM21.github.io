@@ -518,6 +518,47 @@ figure.portrait .tick.br{bottom:9px;right:9px;border-left:0;border-top:0}
     </article>
 
     <div class="section-head"><h2>Projects</h2></div>
+    <article class="project wide rise" style="--cols:4">
+      <figure class="frame lead">
+        <span class="tick tl"></span><span class="tick br"></span>
+        <span class="slot mono">cubesat-tank-aluminum-eclipse-cut.jpg</span>
+        <img src="images/cubesat-tank-aluminum-eclipse-cut.jpg" alt="ANSYS cut view of the aluminum tank and water after a 38 minute eclipse" onerror="this.remove()">
+        <figcaption class="cap">Aluminum tank at the end of a 38 min eclipse</figcaption>
+      </figure>
+      <div class="project-copy">
+        <span class="mono">Ongoing, senior design</span>
+        <h3>CubeSat propulsion thermal design</h3>
+        <p>I run the thermal analysis for a 3U CubeSat whose 1U propulsion module uses water as its propellant, so the core problem is keeping 40 mL of water from freezing through each 38 minute eclipse with as little heater power as possible. The tank pairs a dark-glazed sun window with an MLI blanket, and I model the tank, water, and plumbing as transient thermal simulations in ANSYS Mechanical, later adding the water&rsquo;s latent heat of freezing. Comparing aluminum 6061-T6, 316L stainless, and C10100 copper tanks from a 20 &deg;C start, all three kept the water above freezing, and aluminum came within 0.7 K of copper&rsquo;s coldest point at about a third of the wall mass, so it became the baseline. Lumped-capacitance hand calculations landed within 0.4 K of the simulated averages. Adding the copper feed line showed the next problem: water trapped in exposed plumbing starts freezing after about 8 minutes, which is now driving the insulation and thermal isolation work. The project is still in progress.</p>
+        <dl class="specs">
+          <div><dt class="mono">Role</dt><dd>Thermal simulations</dd></div>
+          <div><dt class="mono">Tools</dt><dd>ANSYS transient thermal, MATLAB</dd></div>
+          <div><dt class="mono">Load case</dt><dd>38 min eclipse, 20 &deg;C start</dd></div>
+          <div><dt class="mono">Baseline</dt><dd>Al 6061-T6 tank, water above 3.8 &deg;C</dd></div>
+        </dl>
+      </div>
+      <div class="thumbs">
+        <figure class="frame" style="aspect-ratio:4/3">
+          <span class="slot mono">cubesat-tank-material-comparison.png</span>
+          <img src="images/cubesat-tank-material-comparison.png" alt="Water temperature through the eclipse for aluminum, stainless, and copper tanks" onerror="this.remove()">
+          <figcaption class="cap"></figcaption>
+        </figure>
+        <figure class="frame" style="aspect-ratio:4/3">
+          <span class="slot mono">cubesat-tank-stainless-eclipse-cut.jpg</span>
+          <img src="images/cubesat-tank-stainless-eclipse-cut.jpg" alt="ANSYS cut view of the stainless steel tank after the eclipse" onerror="this.remove()">
+          <figcaption class="cap"></figcaption>
+        </figure>
+        <figure class="frame" style="aspect-ratio:4/3">
+          <span class="slot mono">cubesat-tank-copper-eclipse-cut.jpg</span>
+          <img src="images/cubesat-tank-copper-eclipse-cut.jpg" alt="ANSYS cut view of the copper tank after the eclipse" onerror="this.remove()">
+          <figcaption class="cap"></figcaption>
+        </figure>
+        <figure class="frame" style="aspect-ratio:4/3">
+          <span class="slot mono">cubesat-plumbing-freeze-worstcase.jpg</span>
+          <img src="images/cubesat-plumbing-freeze-worstcase.jpg" alt="ANSYS temperature of the copper feed line and fittings with trapped water" onerror="this.remove()">
+          <figcaption class="cap"></figcaption>
+        </figure>
+      </div>
+    </article>
     <article class="project wide rise" style="--cols:3">
       <figure class="frame lead">
         <span class="tick tl"></span><span class="tick br"></span>
